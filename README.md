@@ -3,17 +3,21 @@
 This is a course of 100 days with swift from Paul Hudson, it is very interesting and I plan to pass it to the end.
 
 Project1 - Storm Viewer.
-![Simulator Screen Shot - iPhone 11 - 2021-04-04 at 17 59 49](https://user-images.githubusercontent.com/76879483/113516630-fc3c5980-9583-11eb-9086-dc800337966b.png) ![Simulator Screen Shot - iPhone 11 - 2021-04-04 at 17 59 59](https://user-images.githubusercontent.com/76879483/113516631-fd6d8680-9583-11eb-9e7d-52a6279d4ba3.png)
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 40 43](https://user-images.githubusercontent.com/76879483/113517018-2abb3400-9586-11eb-9206-a589e7aa3d13.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 40 24](https://user-images.githubusercontent.com/76879483/113517019-2bec6100-9586-11eb-8e4c-adb66d2a0887.png)
 
 
 
-Project2 - In this project, we made a game with the ability to select the desired flag, 
-the name of which is displayed at the very top, depending on the correct or incorrect answer, 
-a notification appears, added a score counter that is displayed in real time, after playing 5 games, 
-a notification appears about the number of correct and incorrect answers.
+Project2 - Guess the Flag.
 
-Project3 - We took our first project as a basis and added the ability to share images there.
+![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 34 00](https://user-images.githubusercontent.com/76879483/113516839-2e9a8680-9585-11eb-8845-18099fe846c5.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 33 42](https://user-images.githubusercontent.com/76879483/113516841-2f331d00-9585-11eb-8e1a-fab270651bad.png)
 
-![Снимок экрана 2021-04-04 в 17 46 56](https://user-images.githubusercontent.com/76879483/113512626-25ea8600-956e-11eb-8cc4-3bf334a56438.png)
+
+Project3 - Update Project1.
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 36 59](https://user-images.githubusercontent.com/76879483/113516905-9355e100-9585-11eb-88a2-f518a618e02f.png)
+
+
+
 
 
