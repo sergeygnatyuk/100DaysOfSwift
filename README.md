@@ -2,13 +2,10 @@
 
 This is a course of 100 days with swift from Paul Hudson, it is very interesting and I plan to pass it to the end.
 
-Project1 - Set up the Xcode development environment. We wrote a few lines of code to make a table view in our interface,
-After we finished, I attached another method by myself with which you can delete cells.
-Added a transition, by tapping on the cell, we get to a new ViewController that displays the image from our array + 
-added a method that allows you to hide the NavigationController by tapping on the image to fully display the image.
-I customized the cells a little, rounded them up and painted them.
-Change the font in the cell through the code, made the sorting by name, 
-so that the cells are displayed in chronological order made the display of the name of the image in the style (1 out of 10) when switching to the image.
+Project1 - Storm Viewer.
+![Simulator Screen Shot - iPhone 11 - 2021-04-04 at 17 59 49](https://user-images.githubusercontent.com/76879483/113516630-fc3c5980-9583-11eb-9086-dc800337966b.png) ![Simulator Screen Shot - iPhone 11 - 2021-04-04 at 17 59 59](https://user-images.githubusercontent.com/76879483/113516631-fd6d8680-9583-11eb-9e7d-52a6279d4ba3.png)
+
+
 
 Project2 - In this project, we made a game with the ability to select the desired flag, 
 the name of which is displayed at the very top, depending on the correct or incorrect answer, 
