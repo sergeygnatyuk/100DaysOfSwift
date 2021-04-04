@@ -8,8 +8,10 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
     @IBOutlet weak var imageView: UIImageView!
     var selectedImage: String?
+    
     //Homework
     var selectedPictureNumber = 0
     var totalPictures = 0
@@ -19,6 +21,11 @@ class DetailViewController: UIViewController {
         
         title = "Pictures \(selectedPictureNumber) of \(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
+        
+        //add icon action in navigationBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self,
+                                                            action: #selector(shareTaped))
         
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
@@ -33,5 +40,21 @@ class DetailViewController: UIViewController {
         super.viewDidDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
+    
+    //method share image
+    @objc func shareTaped() {
+        guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+            print("No image found")
+            return
+        }
+        //add name image in UIActivityViewController
+        let viewController = UIActivityViewController(activityItems: [image, selectedImage as Any], applicationActivities: [])
+        viewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(viewController, animated: true)
+        
+        
+        
+    }
+    var imageName = ViewController()
 
 }
