@@ -1,3 +1,4 @@
+<img width="1003" alt="Снимок экрана 2021-04-04 в 17 23 39" src="https://user-images.githubusercontent.com/76879483/113512011-61d01c00-956b-11eb-8588-65c161133a46.png">
 # 100DaysOfSwift
 
 This is a course of 100 days with swift from Paul Hudson, it is very interesting and I plan to pass it to the end.
