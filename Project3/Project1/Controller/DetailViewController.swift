@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         
         //add icon action in navigationBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+ navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
                                                             target: self, action: #selector(shareTaped))
         
         if let imageToLoad = selectedImage {
