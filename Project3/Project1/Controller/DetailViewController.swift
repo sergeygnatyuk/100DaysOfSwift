@@ -24,8 +24,7 @@ class DetailViewController: UIViewController {
         
         //add icon action in navigationBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                            target: self,
-                                                            action: #selector(shareTaped))
+                                                            target: self, action: #selector(shareTaped))
         
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
@@ -51,10 +50,5 @@ class DetailViewController: UIViewController {
         let viewController = UIActivityViewController(activityItems: [image, selectedImage as Any], applicationActivities: [])
         viewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(viewController, animated: true)
-        
-        
-        
     }
-    var imageName = ViewController()
-
 }

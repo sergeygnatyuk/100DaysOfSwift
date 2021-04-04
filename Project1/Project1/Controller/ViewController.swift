@@ -16,6 +16,10 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //add icon action in navigationBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self,
+                                                            action: #selector(menuButtonTapped))
         
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -87,6 +91,9 @@ class ViewController: UITableViewController {
         return headerView
     }
     
+    //method share link
+    @objc func menuButtonTapped(sender: UIBarButtonItem) {
 
+    }
 }
 

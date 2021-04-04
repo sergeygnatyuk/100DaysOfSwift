@@ -24,7 +24,6 @@
 		4A3A2B2C2611E6AA00C0FF0B /* nssl0033.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A2B222611E6AA00C0FF0B /* nssl0033.jpg */; };
 		4A3A2B2D2611E6AA00C0FF0B /* nssl0034.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A2B232611E6AA00C0FF0B /* nssl0034.jpg */; };
 		4A6B7B7C2612E7540018F43F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6B7B7B2612E7540018F43F /* DetailViewController.swift */; };
-		4AA61017261318B90049A6F7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4AA61016261318B90049A6F7 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +46,6 @@
 		4A3A2B222611E6AA00C0FF0B /* nssl0033.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0033.jpg; sourceTree = "<group>"; };
 		4A3A2B232611E6AA00C0FF0B /* nssl0034.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nssl0034.jpg; sourceTree = "<group>"; };
 		4A6B7B7B2612E7540018F43F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		4AA61016261318B90049A6F7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 		4A3A2AF82611E1D200C0FF0B = {
 			isa = PBXGroup;
 			children = (
-				4AA61016261318B90049A6F7 /* .gitignore */,
 				4A3A2B032611E1D200C0FF0B /* Project1 */,
 				4A3A2B022611E1D200C0FF0B /* Products */,
 			);
@@ -84,8 +81,7 @@
 				4A6B7B802612E7A30018F43F /* Model */,
 				4A6B7B7F2612E78D0018F43F /* View */,
 				4A6B7B7E2612E7700018F43F /* Controller */,
-				4A6B7B822612E7CF0018F43F /* AssetsAndPlist */,
-				4A3A2B192611E6AA00C0FF0B /* Content */,
+				4A6B7B822612E7CF0018F43F /* Supporting Files */,
 			);
 			path = Project1;
 			sourceTree = "<group>";
@@ -128,19 +124,20 @@
 		4A6B7B802612E7A30018F43F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4A3A2B042611E1D200C0FF0B /* AppDelegate.swift */,
-				4A3A2B062611E1D200C0FF0B /* SceneDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		4A6B7B822612E7CF0018F43F /* AssetsAndPlist */ = {
+		4A6B7B822612E7CF0018F43F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A3A2B192611E6AA00C0FF0B /* Content */,
+				4A3A2B042611E1D200C0FF0B /* AppDelegate.swift */,
+				4A3A2B062611E1D200C0FF0B /* SceneDelegate.swift */,
 				4A3A2B0D2611E1D300C0FF0B /* Assets.xcassets */,
 				4A3A2B122611E1D300C0FF0B /* Info.plist */,
 			);
-			path = AssetsAndPlist;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +205,6 @@
 				4A3A2B2D2611E6AA00C0FF0B /* nssl0034.jpg in Resources */,
 				4A3A2B242611E6AA00C0FF0B /* nssl0049.jpg in Resources */,
 				4A3A2B292611E6AA00C0FF0B /* nssl0041.jpg in Resources */,
-				4AA61017261318B90049A6F7 /* .gitignore in Resources */,
 				4A3A2B2A2611E6AA00C0FF0B /* nssl0042.jpg in Resources */,
 				4A3A2B112611E1D300C0FF0B /* LaunchScreen.storyboard in Resources */,
 				4A3A2B0E2611E1D300C0FF0B /* Assets.xcassets in Resources */,
@@ -376,7 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project1/AssetsAndPlist/Info.plist;
+				INFOPLIST_FILE = "Project1/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project1/AssetsAndPlist/Info.plist;
+				INFOPLIST_FILE = "Project1/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

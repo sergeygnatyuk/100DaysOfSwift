@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // add bar button item
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self, action: #selector(shareTaped))
+        
         countries += ["estonia","france","germany","ireland","italy",
                       "monaco","nigeria","poland","russia","spain","uk","us"]
         
@@ -77,5 +81,13 @@ class ViewController: UIViewController {
         present(alertController, animated: true)
         
     }
+    // method call alert controller when you click on buttonItem
+    @objc func shareTaped() {
+        let title = "Your score"
+        let message = "You give \(allAsks - 1) answers, positive answers \(positiveAnswers), negative answers \(negativeAnswers)"
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Continue", style: .cancel))
+        present(alertController, animated: true)
+        }
 }
 
