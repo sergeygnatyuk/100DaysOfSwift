@@ -16,5 +16,6 @@ a notification appears, added a score counter that is displayed in real time, af
 a notification appears about the number of correct and incorrect answers.
 
 Project3 - We took our first project as a basis and added the ability to share images there.
+
 <img width="310" alt="Снимок экрана 2021-04-04 в 17 33 49" src="https://user-images.githubusercontent.com/76879483/113512145-fd618c80-956b-11eb-8dcb-5475577366ac.png">
 <img width="306" alt="Снимок экрана 2021-04-04 в 17 34 10" src="https://user-images.githubusercontent.com/76879483/113512148-ff2b5000-956b-11eb-911e-0f40086f00d6.png">
