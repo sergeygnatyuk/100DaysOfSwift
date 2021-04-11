@@ -29,7 +29,9 @@ Project 4 - Easy Browser.
 
 Project 5 - Word Scramble.
 
-https://user-images.githubusercontent.com/76879483/114301650-7dd53f80-9ace-11eb-917d-03afe0666e74.mov
+![Simulator Screen Shot - iPhone 12 - 2021-04-11 at 13 56 52](https://user-images.githubusercontent.com/76879483/114302079-1c15d500-9ad0-11eb-9727-b82ac6ed93ee.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-11 at 13 57 09](https://user-images.githubusercontent.com/76879483/114302080-1cae6b80-9ad0-11eb-89ce-338ffb23da45.png)
+
+
 
 
 
