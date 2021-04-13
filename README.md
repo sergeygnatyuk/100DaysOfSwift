@@ -12,7 +12,7 @@ Project 2 - Guess the Flag.
 ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 34 00](https://user-images.githubusercontent.com/76879483/113516839-2e9a8680-9585-11eb-8845-18099fe846c5.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 33 42](https://user-images.githubusercontent.com/76879483/113516841-2f331d00-9585-11eb-8e1a-fab270651bad.png)
 
 
-Project 3 - Update Project1.
+Project 3 - Update Project 1.
 
 ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 36 59](https://user-images.githubusercontent.com/76879483/113516905-9355e100-9585-11eb-88a2-f518a618e02f.png)
 
@@ -30,6 +30,17 @@ Project 4 - Easy Browser.
 Project 5 - Word Scramble.
 
 ![Simulator Screen Shot - iPhone 12 - 2021-04-11 at 13 56 52](https://user-images.githubusercontent.com/76879483/114302079-1c15d500-9ad0-11eb-9727-b82ac6ed93ee.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-11 at 13 57 09](https://user-images.githubusercontent.com/76879483/114302080-1cae6b80-9ad0-11eb-89ce-338ffb23da45.png)
+
+
+Project 6 - Auto Layout.
+
+Project 6a - Update Project 2.
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-13 at 21 11 08](https://user-images.githubusercontent.com/76879483/114603165-15d65300-9ca0-11eb-9b66-dc862e8b2477.png)
+
+Project 6b - Auto Layout in code.
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-13 at 21 10 20](https://user-images.githubusercontent.com/76879483/114603420-5df57580-9ca0-11eb-880a-da464c8fbc7a.png)
 
 
 
