@@ -9,9 +9,17 @@ import UIKit
 
 class ViewController: UITableViewController {
     var petitions = [Petition]()
+    var filter = [Petition]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //homework add button Credits in navigationController
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(addCredits))
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterPetitions))
+        
         title = "Parsing JSON"
         
         let urlString: String
@@ -40,18 +48,18 @@ class ViewController: UITableViewController {
         let decoder = JSONDecoder()
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
+            filter = petitions
             tableView.reloadData()
         }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        petitions.count
+        filter.count      //        petitions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let petition = petitions[indexPath.row]
-        
+        let petition = filter[indexPath.row]  //petitions[indexPath.row]
         cell.textLabel?.text = petition.title
         cell.detailTextLabel?.text = petition.body
         return cell
@@ -59,10 +67,37 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        vc.detailItem = petitions[indexPath.row]
+        vc.detailItem = filter[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    //homework func call alert
+    @objc func addCredits() {
+    let ac = UIAlertController.init(title: "Attention", message: "Data comes from the We The People API of the Whitehouse.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        present(ac, animated: true, completion: nil)
 
-
+    }
+    
+    @objc func filterPetitions() {
+        let ac = UIAlertController(title: "Filter Petitions", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] _ in
+            guard let search = ac?.textFields?[0].text else { return }
+            self?.submit(search)
+        }
+        ac.addAction(submitAction)
+        present(ac, animated: true)
+    }
+    
+    func submit(_ searchString: String) {
+        filter.removeAll(keepingCapacity: true)
+        for petition in petitions {
+            if petition.title.contains(searchString) || petition.body.contains(searchString) {
+                filter.append(petition)
+                tableView.reloadData()
+            }
+        }
+    }
 }
 
