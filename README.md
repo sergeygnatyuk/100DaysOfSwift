@@ -53,7 +53,9 @@ Project 7 - Parsing JSON.
 ![Simulator Screen Shot - iPhone 12 - 2021-04-17 at 10 12 52](https://user-images.githubusercontent.com/76879483/115105129-95e10f00-9f65-11eb-93ee-f7a21de1a296.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-17 at 10 12 15](https://user-images.githubusercontent.com/76879483/115105132-97aad280-9f65-11eb-9d9c-73c376db72ca.png)
 
 
+Project 8 - Swifty Words.
 
+![Simulator Screen Shot - iPad Pro (11-inch) (2nd generation) - 2021-04-20 at 22 32 55](https://user-images.githubusercontent.com/76879483/115454683-bb9e3a80-a229-11eb-9040-5468fae2ca21.png) ![Simulator Screen Shot - iPad Pro (11-inch) (2nd generation) - 2021-04-20 at 22 32 36](https://user-images.githubusercontent.com/76879483/115454686-bc36d100-a229-11eb-9c39-117af61782ec.png)
 
 
 
