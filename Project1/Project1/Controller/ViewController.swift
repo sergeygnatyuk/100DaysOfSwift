@@ -24,19 +24,9 @@ class ViewController: UITableViewController {
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        var items = try! fm.contentsOfDirectory(atPath: path)
-        
-        //sorting uitableviewcell
-        items.sort()
-        
-        for item in items {
-            if item.hasPrefix("nssl") {
-                pictures.append(item)
-            }
-            
-        }
+        //homework project 9 task 1
+        performSelector(inBackground: #selector(backLoadImage), with: nil)
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +84,24 @@ class ViewController: UITableViewController {
     //method share link
     @objc func menuButtonTapped(sender: UIBarButtonItem) {
 
+    }
+    
+    //homework project 9 task 1
+    @objc func backLoadImage() {
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        var items = try! fm.contentsOfDirectory(atPath: path)
+        
+        //sorting uitableviewcell
+        items.sort()
+        
+        
+        for item in items {
+            if item.hasPrefix("nssl") {
+                self.pictures.append(item)
+            }
+        }
+        
     }
 }
 
