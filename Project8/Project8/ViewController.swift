@@ -136,8 +136,9 @@ class ViewController: UIViewController {
         
         
         
+        //homework project 9 task 2
+        performSelector(inBackground: #selector(loadLevel), with: nil)
         
-        loadLevel()
       
     }
     
@@ -213,7 +214,7 @@ class ViewController: UIViewController {
         for button in letterButtons {
             button.isHidden = false
         }
-                 
+
                  }
     
     @objc func clearTapped(_ sender: UIButton) {
@@ -225,8 +226,8 @@ class ViewController: UIViewController {
         }
         
     
-    
-    func loadLevel() {
+    //homework project 9 task 2
+   @objc func loadLevel() {
         var clueString = ""
         var solutionsString = ""
         var letterBits = [String]()
@@ -251,19 +252,21 @@ class ViewController: UIViewController {
                 }
             }
         }
+    //homework project 9 task 2
+    DispatchQueue.main.async { [weak self] in
+        self?.cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+        self?.answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
-        answersLabel.text = solutionsString.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        self?.letterButtons.shuffle()
         
-        letterButtons.shuffle()
-        
-        if letterButtons.count == letterBits.count {
+        if self?.letterButtons.count == letterBits.count {
             
-            for i in 0..<letterButtons.count {
-                letterButtons[i].setTitle(letterBits[i], for: .normal)
+            for i in 0..<self!.letterButtons.count {
+                self?.letterButtons[i].setTitle(letterBits[i], for: .normal)
             }
         }
+    }
     }
 }
 
