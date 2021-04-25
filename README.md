@@ -58,6 +58,11 @@ Project 8 - Swifty Words.
 ![Simulator Screen Shot - iPad Pro (11-inch) (2nd generation) - 2021-04-20 at 22 32 55](https://user-images.githubusercontent.com/76879483/115454683-bb9e3a80-a229-11eb-9040-5468fae2ca21.png) ![Simulator Screen Shot - iPad Pro (11-inch) (2nd generation) - 2021-04-20 at 22 32 36](https://user-images.githubusercontent.com/76879483/115454686-bc36d100-a229-11eb-9c39-117af61782ec.png)
 
 
+Projects 7-9 Milestone - Game "Hangman".
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-25 at 22 49 20](https://user-images.githubusercontent.com/76879483/116007756-f8977200-a619-11eb-9160-cdf58c3cca4b.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-25 at 22 49 42](https://user-images.githubusercontent.com/76879483/116007757-f9c89f00-a619-11eb-852f-1b93ec1056a8.png)
+
+
 
 
 
