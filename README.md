@@ -63,8 +63,14 @@ Projects 7-9 Milestone - Game "Hangman".
 ![Simulator Screen Shot - iPhone 12 - 2021-04-25 at 22 49 20](https://user-images.githubusercontent.com/76879483/116007756-f8977200-a619-11eb-9160-cdf58c3cca4b.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-25 at 22 49 42](https://user-images.githubusercontent.com/76879483/116007757-f9c89f00-a619-11eb-852f-1b93ec1056a8.png)
 
 
+Project 10 - Names to Faces.
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-27 at 01 27 27](https://user-images.githubusercontent.com/76879483/116160595-040e9a00-a6fb-11eb-9a6f-deb962837b4c.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-27 at 01 28 51](https://user-images.githubusercontent.com/76879483/116160597-04a73080-a6fb-11eb-92b0-f93721d7fe76.png)
 
 
+Project 1 - Update based on 3 tasks in project 10.
+
+![Simulator Screen Shot - iPhone 12 - 2021-04-27 at 01 25 15](https://user-images.githubusercontent.com/76879483/116160844-6ebfd580-a6fb-11eb-800f-a7086e8c3241.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-27 at 01 29 47](https://user-images.githubusercontent.com/76879483/116160848-6f586c00-a6fb-11eb-92e1-a9e3943b34ec.png)
 
 
 
