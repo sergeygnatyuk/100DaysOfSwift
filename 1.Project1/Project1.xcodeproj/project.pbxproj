@@ -59,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A0CAF7F263A05D70038734D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A3A2B192611E6AA00C0FF0B /* Content */,
+				4A3A2B0D2611E1D300C0FF0B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4A3A2AF82611E1D200C0FF0B = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +87,7 @@
 		4A3A2B032611E1D200C0FF0B /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
-				4A6B7B802612E7A30018F43F /* Model */,
+				4A0CAF7F263A05D70038734D /* Resources */,
 				4A6B7B7F2612E78D0018F43F /* View */,
 				4A6B7B7E2612E7700018F43F /* Controller */,
 				4A6B7B822612E7CF0018F43F /* Supporting Files */,
@@ -121,20 +130,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4A6B7B802612E7A30018F43F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		4A6B7B822612E7CF0018F43F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4A3A2B192611E6AA00C0FF0B /* Content */,
 				4A3A2B042611E1D200C0FF0B /* AppDelegate.swift */,
 				4A3A2B062611E1D200C0FF0B /* SceneDelegate.swift */,
-				4A3A2B0D2611E1D300C0FF0B /* Assets.xcassets */,
 				4A3A2B122611E1D300C0FF0B /* Info.plist */,
 			);
 			path = "Supporting Files";
