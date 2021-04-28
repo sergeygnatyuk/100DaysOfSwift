@@ -37,6 +37,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A8722CD2639CE4B00AF5E65 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4AD6156B26383F45008564DC /* AppDelegate.swift */,
+				4AD6156D26383F45008564DC /* GameScene.sks */,
+				4AD6157A26383F46008564DC /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4A8722D02639CE9800AF5E65 /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				4AD6157826383F46008564DC /* Assets.xcassets */,
+			);
+			path = "Resources ";
+			sourceTree = "<group>";
+		};
+		4A8722D22639CEC900AF5E65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AD6157526383F45008564DC /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A8722D32639CED300AF5E65 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4AD6157326383F45008564DC /* GameViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4A8722D52639D56500AF5E65 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				4AD6157126383F45008564DC /* GameScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		4AD6155F26383F45008564DC = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +98,11 @@
 		4AD6156A26383F45008564DC /* Project11 */ = {
 			isa = PBXGroup;
 			children = (
-				4AD6156B26383F45008564DC /* AppDelegate.swift */,
-				4AD6156D26383F45008564DC /* GameScene.sks */,
-				4AD6157126383F45008564DC /* GameScene.swift */,
-				4AD6157326383F45008564DC /* GameViewController.swift */,
-				4AD6157526383F45008564DC /* Main.storyboard */,
-				4AD6157826383F46008564DC /* Assets.xcassets */,
-				4AD6157A26383F46008564DC /* Info.plist */,
+				4A8722D52639D56500AF5E65 /* Scene */,
+				4A8722CD2639CE4B00AF5E65 /* SupportingFiles */,
+				4A8722D32639CED300AF5E65 /* Controllers */,
+				4A8722D22639CEC900AF5E65 /* View */,
+				4A8722D02639CE9800AF5E65 /* Resources  */,
 			);
 			path = Project11;
 			sourceTree = "<group>";
@@ -280,7 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project11/Info.plist;
+				INFOPLIST_FILE = Project11/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,7 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project11/Info.plist;
+				INFOPLIST_FILE = Project11/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
