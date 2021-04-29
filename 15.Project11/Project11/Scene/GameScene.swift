@@ -21,8 +21,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let slotNameBad = "bad"
     private let ballName = "ball"
     private let fontName = "Chalkduster"
+    private let boxName = "box"
+    private let animationName = "FireParticles"
+    //homework challenge 1 in project 11
+    private let ballArray = ["ballRed", "ballBlue", "ballCyan", "ballGreen", "ballGrey", "ballPurple", "ballYellow"]
+    private var countBallsLabel: SKLabelNode!
     private var scoreLabel: SKLabelNode!
     private var editLabel: SKLabelNode!
+    private var gameOverLabel: SKLabelNode!
     
     //Observers
     private var score = 0 {
@@ -31,13 +37,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    var editingMode: Bool = false {
+   private var editingMode: Bool = false {
         didSet {
             if editingMode {
                 editLabel.text = "Done"
             } else {
                 editLabel.text = "Edit"
             }
+        }
+    }
+    //homework challenge 3 in project 11
+    private var countBalls = 5 {
+        didSet {
+            countBallsLabel.text = "\(countBalls) balls available"
         }
     }
     
@@ -49,6 +61,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
+        //homework challenge 3 in project 11
+        gameOverLabel = SKLabelNode(fontNamed: fontName)
+        gameOverLabel.isHidden = true
+        gameOverLabel.fontSize = 70
+        gameOverLabel.text = "GAME OVER"
+        gameOverLabel.horizontalAlignmentMode = .center
+        gameOverLabel.position = CGPoint(x: 500, y: 400)
+        addChild(gameOverLabel)
+        
+        countBallsLabel = SKLabelNode(fontNamed: fontName)
+        countBallsLabel.text = "\(countBalls) balls available"
+        countBallsLabel.horizontalAlignmentMode = .center
+        countBallsLabel.position = CGPoint(x: 500, y: 700)
+        addChild(countBallsLabel)
         
         scoreLabel = SKLabelNode(fontNamed: fontName)
         scoreLabel.text = "Score: 0"
@@ -95,15 +121,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
                 box.physicsBody?.isDynamic = false
+                //homework challenge 3 in project 11
+                box.name = boxName
                 addChild(box)
             } else {
-                let ball = SKSpriteNode(imageNamed: imageName2)
+                //homework challenge 3 in project 11
+                if countBalls == 0 {
+                    gameOverLabel.isHidden = false
+                    return
+                }
+                //homework challenge 1 in project 11
+                let ball = SKSpriteNode(imageNamed: ballArray.randomElement() ?? imageName2)
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody?.restitution = 0.4
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
-                ball.position = location
+                //homework challenge 2 in project 11
+                ball.position = CGPoint(x: location.x, y: 700)
                 ball.name = ballName
                 addChild(ball)
+                //homework challenge 3 in project 11
+                countBalls -= 1
             }
         }
     }
@@ -150,13 +187,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if object.name == slotNameGood {
             destroy(ball: ball)
             score += 1
+            countBalls += 1
         } else if object.name == slotNameBad {
             destroy(ball: ball)
             score -= 1
+            //homework challenge 3 in project 11
+        }else if object.name == boxName {
+            destroyBox(box: object)
         }
+    }
+    //homework challenge 3 in project 11
+    private func destroyBox(box: SKNode) {
+        if let sparkParticles = SKEmitterNode(fileNamed: animationName) {
+            sparkParticles.position = box.position
+            addChild(sparkParticles)
+        }
+        box.removeFromParent()
     }
     
     private func destroy(ball: SKNode) {
+        if let fireParticles = SKEmitterNode(fileNamed: animationName) {
+            fireParticles.position = ball.position
+            addChild(fireParticles)
+        }
         ball.removeFromParent()
     }
     
