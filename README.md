@@ -73,4 +73,7 @@ Project 1 - Update based on 3 tasks in project 10.
 ![Simulator Screen Shot - iPhone 12 - 2021-04-27 at 01 25 15](https://user-images.githubusercontent.com/76879483/116160844-6ebfd580-a6fb-11eb-800f-a7086e8c3241.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-27 at 01 29 47](https://user-images.githubusercontent.com/76879483/116160848-6f586c00-a6fb-11eb-92e1-a9e3943b34ec.png)
 
 
+Project 11 - Game "Pachinko".
+
+![Simulator Screen Shot - iPad Air (4th generation) - 2021-04-30 at 00 18 39](https://user-images.githubusercontent.com/76879483/116619922-cb183480-a949-11eb-9aab-2bdb40824368.png) ![Simulator Screen Shot - iPad Air (4th generation) - 2021-04-30 at 00 18 57](https://user-images.githubusercontent.com/76879483/116619928-cd7a8e80-a949-11eb-80b1-3404337898fe.png)
 
