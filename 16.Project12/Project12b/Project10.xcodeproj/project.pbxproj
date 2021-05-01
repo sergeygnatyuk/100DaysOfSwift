@@ -41,6 +41,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A9F0904263DFE0500E2EAA4 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4AF9BE8E2635769B00E1D119 /* AppDelegate.swift */,
+				4AF9BE902635769B00E1D119 /* SceneDelegate.swift */,
+				4AF9BE9C2635769F00E1D119 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4A9F0905263DFE1700E2EAA4 /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				4AF9BE972635769F00E1D119 /* Assets.xcassets */,
+			);
+			path = "Resources ";
+			sourceTree = "<group>";
+		};
+		4A9F0906263DFE2900E2EAA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AF9BE942635769B00E1D119 /* Main.storyboard */,
+				4AF9BE992635769F00E1D119 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A9F0907263DFE3400E2EAA4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4AF9BE922635769B00E1D119 /* ViewController.swift */,
+				4AF9BEA32635789600E1D119 /* PersonCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4A9F0908263DFE3C00E2EAA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A2F0C6B26360CD400E5C650 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4AF9BE822635769B00E1D119 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +104,11 @@
 		4AF9BE8D2635769B00E1D119 /* Project10 */ = {
 			isa = PBXGroup;
 			children = (
-				4AF9BE8E2635769B00E1D119 /* AppDelegate.swift */,
-				4AF9BE902635769B00E1D119 /* SceneDelegate.swift */,
-				4AF9BE922635769B00E1D119 /* ViewController.swift */,
-				4A2F0C6B26360CD400E5C650 /* Person.swift */,
-				4AF9BE942635769B00E1D119 /* Main.storyboard */,
-				4AF9BEA32635789600E1D119 /* PersonCell.swift */,
-				4AF9BE972635769F00E1D119 /* Assets.xcassets */,
-				4AF9BE992635769F00E1D119 /* LaunchScreen.storyboard */,
-				4AF9BE9C2635769F00E1D119 /* Info.plist */,
+				4A9F0904263DFE0500E2EAA4 /* SupportingFiles */,
+				4A9F0907263DFE3400E2EAA4 /* Controllers */,
+				4A9F0908263DFE3C00E2EAA4 /* Model */,
+				4A9F0906263DFE2900E2EAA4 /* View */,
+				4A9F0905263DFE1700E2EAA4 /* Resources  */,
 			);
 			path = Project10;
 			sourceTree = "<group>";
@@ -296,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project10/Info.plist;
+				INFOPLIST_FILE = Project10/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project10/Info.plist;
+				INFOPLIST_FILE = Project10/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
