@@ -11,12 +11,24 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     // Properties
     private var people = [Person]()
     private let identifierPerson = "Person"
+    private let keyPeople = "people"
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newPerson))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                           target: self,
+                                                           action: #selector(newPerson))
+        let defaults = UserDefaults.standard
+        if let savedPeople = defaults.object(forKey: keyPeople) as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("Failed to save people.")
+            }
+        }
     }
     
     //MARK: - CollectionView
@@ -57,13 +69,16 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
                                            style: .default){ [weak self, weak ac] _ in
                     guard let newName = ac?.textFields?[0].text else { return }
                     person.name = newName
+                    self?.save()
                     self?.collectionView.reloadData()
                 })
                 self?.present(ac, animated: true)
             }
             let deleteAction = UIAlertAction(title: "Delete",
                                              style: .destructive) { [weak self] (action) in
-                let ac = UIAlertController(title: "Confirm Delete", message: "Are you sure you would like to delete?", preferredStyle: .alert)
+                let ac = UIAlertController(title: "Confirm Delete",
+                                           message: "Are you sure you would like to delete?",
+                                           preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Delete",
                                            style: .destructive) { [weak self] (action) in
                     self?.people.remove(at: indexPath.item)
@@ -102,6 +117,16 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return paths[0]
     }
     
+    private func save() {
+        let jsonEncoder = JSONEncoder()
+        if let saveData = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            defaults.set(saveData, forKey: keyPeople)
+        } else {
+            print("Failed to save people")
+        }
+    }
+    
     //MARK: - Public
     
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -113,6 +138,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         }
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
+        save()
         collectionView.reloadData()
         dismiss(animated: true, completion: nil)
     }
