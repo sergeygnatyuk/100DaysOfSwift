@@ -11,14 +11,19 @@ class DetailViewController: UIViewController {
     
     //Properties
     @IBOutlet weak var imageView: UIImageView!
-    var selectedImage: String?
+    public var selectedImage: String?
     //Homework
-    var selectedPictureNumber = 0
-    var totalPictures = 0
+    public var selectedPictureNumber = 0
+    public var totalPictures = 0
     
     //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self,
+                                                            action: #selector(shareTaped))
         
         title = "Pictures \(selectedPictureNumber) of \(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
@@ -38,8 +43,9 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: - @objc methods
+    
     //method share image
-    @objc func shareTaped() {
+    @objc private func shareTaped() {
         guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
             print("No image found")
             return

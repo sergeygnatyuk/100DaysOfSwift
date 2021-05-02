@@ -9,8 +9,10 @@ import UIKit
 
 class ViewController: UITableViewController {
     
-    //Dependencies
-    private var pictures = [String]()
+    //Properties
+    public var pictures = [String]()
+    public var picturesViewCount = [String: Int]()
+    private let photosKey = "viewCount"
     private let cellReuseIdentifier = "Picture"
     private let titleName = "Storm Viewer"
     private let nssl = "nssl"
@@ -26,9 +28,14 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
                                                             target: self,
                                                             action: #selector(menuButtonTapped))
+        //project 12 task 1
+        let userDefaults = UserDefaults.standard
+        picturesViewCount = userDefaults.object(forKey: photosKey) as? [String: Int] ?? [String: Int]()
         
         title = titleName
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        tableView.rowHeight = 60
         
         //homework project 9 task 1
         performSelector(inBackground: #selector(backLoadImage), with: nil)
@@ -44,45 +51,52 @@ class ViewController: UITableViewController {
         let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         
         cell.textLabel?.text = pictures[indexPath.row]
+        //project 12 task 1
+        cell.detailTextLabel?.text = "Views: \(picturesViewCount[pictures[indexPath.row], default: 0])"
         cell.backgroundColor = UIColor.lightText
         cell.layer.borderColor = UIColor.cyan.cgColor
-        cell.layer.borderWidth = 2.5
+        cell.layer.borderWidth = 3.0
         cell.layer.cornerRadius = 15
-        cell.clipsToBounds = true
-        //change font size in cells
-        cell.textLabel?.font = UIFont.init(name: fontName, size: 20)
+       // change font size in cells
+        cell.textLabel?.font = UIFont.init(name: fontName, size: 15)
         return cell
     }
     
     //Delete cell
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             pictures.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
-    override func tableView(_ tableView: UITableView,
-                            didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let viewController = storyboard?.instantiateViewController(withIdentifier: identifierDetail) as? DetailViewController {
             viewController.selectedImage = pictures[indexPath.row]
             //Homework
             viewController.selectedPictureNumber = indexPath.row + 1
+            //project 12 task 1
+            picturesViewCount[pictures[indexPath.row], default: 0] += 1
+            
             viewController.totalPictures = pictures.count
-            navigationController?.pushViewController(viewController, animated: true)
+            
+            DispatchQueue.global().async { [weak self] in
+                self?.saveViewCount()
+
+                DispatchQueue.main.async {
+                    self?.navigationController?.pushViewController(viewController, animated: true)
+                    self?.tableView.reloadRows(at: [indexPath], with: .none)
+                }
+            }
         }
     }
     
-    //Customization cell
-    override func tableView(_ tableView: UITableView,
-                            heightForHeaderInSection section: Int) -> CGFloat {
+   // Customization cell
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
-    override func tableView(_ tableView: UITableView,
-                            viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
@@ -91,11 +105,19 @@ class ViewController: UITableViewController {
     //MARK: - @objc methods
     
     //method share link
-    @objc func menuButtonTapped(sender: UIBarButtonItem) {
+    @objc private func menuButtonTapped() {
+        var items: [Any] = ["This app is great, you should try it!"]
+        if let url = URL(string: "https://www.hackingwithswift.com/100/16") {
+            items.append(url)
+        }
+        
+        let vc = UIActivityViewController(activityItems: items, applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
     }
     
     //homework project 9 task 1
-    @objc func backLoadImage() {
+    @objc private func backLoadImage() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         var items = try! fm.contentsOfDirectory(atPath: path)
@@ -106,6 +128,13 @@ class ViewController: UITableViewController {
                 self.pictures.append(item)
             }
         }
+    }
+    
+    //MARK: - Private
+
+    private func saveViewCount() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(picturesViewCount, forKey: photosKey)
     }
 }
 
