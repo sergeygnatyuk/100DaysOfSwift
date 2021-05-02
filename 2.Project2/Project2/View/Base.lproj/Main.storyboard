@@ -26,7 +26,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="uk"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bUl-EJ-Q7i"/>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="drU-3W-SaH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVC-rU-GrB">
@@ -39,7 +39,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="uk"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dzg-vC-Nav"/>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c8W-a6-QpT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFF-PV-rZn">
@@ -52,15 +52,9 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="uk"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="68a-Mj-efF"/>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="szm-aS-Gr7"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-V2-iWn">
-                                <rect key="frame" x="20" y="658" width="374" height="25"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,20 +62,16 @@
                             <constraint firstItem="YFF-PV-rZn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0yC-4I-qiy"/>
                             <constraint firstItem="IVC-rU-GrB" firstAttribute="centerX" secondItem="5ls-xg-jzM" secondAttribute="centerX" id="798-ZY-mfJ"/>
                             <constraint firstItem="5ls-xg-jzM" firstAttribute="top" secondItem="YFF-PV-rZn" secondAttribute="bottom" constant="30" id="Gpm-QS-RH3"/>
-                            <constraint firstItem="aUo-V2-iWn" firstAttribute="top" secondItem="IVC-rU-GrB" secondAttribute="bottom" constant="193" id="NPw-WC-d5p"/>
-                            <constraint firstItem="aUo-V2-iWn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aec-gC-kIr"/>
                             <constraint firstItem="IVC-rU-GrB" firstAttribute="top" secondItem="5ls-xg-jzM" secondAttribute="bottom" constant="35" id="cPO-rg-g6X"/>
                             <constraint firstItem="5ls-xg-jzM" firstAttribute="centerX" secondItem="YFF-PV-rZn" secondAttribute="centerX" id="j45-py-IAe"/>
                             <constraint firstItem="YFF-PV-rZn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="k2L-UK-GuH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aUo-V2-iWn" secondAttribute="trailing" constant="20" id="xz8-Ov-3Na"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HCK-iE-neb"/>
                     <connections>
-                        <outlet property="button1" destination="YFF-PV-rZn" id="i7g-rh-rlH"/>
-                        <outlet property="button2" destination="5ls-xg-jzM" id="9fW-3e-6aK"/>
-                        <outlet property="button3" destination="IVC-rU-GrB" id="2sD-zl-r76"/>
-                        <outlet property="scoreLabel" destination="aUo-V2-iWn" id="yVk-9A-jvx"/>
+                        <outlet property="button1" destination="YFF-PV-rZn" id="FWT-04-95D"/>
+                        <outlet property="button2" destination="5ls-xg-jzM" id="Ylv-Yy-ztg"/>
+                        <outlet property="button3" destination="IVC-rU-GrB" id="S6C-ld-VoV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -8,86 +8,132 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var scoreLabel: UILabel!
+
+    // UI
+    @IBOutlet var button1: UIButton!
+    @IBOutlet var button2: UIButton!
+    @IBOutlet var button3: UIButton!
     
-    var countries = [String]()
-    var score = 0
-    var positiveAnswers = 0
-    var negativeAnswers = 0
-    var correctAnswer = 0
-    var allAsks = 0
+    // Properties
+   private var countries = ["estonia", "france", "germany", "ireland", "italy", "monaco",
+                            "nigeria", "poland", "russia", "spain", "uk", "us"]
+    private var score = 0
+    // project 12 challenge 2
+    private var highestScore = -1
+    private var highestScoreKey = "HighestScore"
+    private var correctAnswer = 0
+    private var currentQuestion = 0
+    // challenge 2
+    private let maxQuestion = 5
     
-    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // add bar button item
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                            target: self, action: #selector(shareTaped))
-        
-        countries += ["estonia","france","germany","ireland","italy",
-                      "monaco","nigeria","poland","russia","spain","uk","us"]
-        
         button1.layer.borderWidth = 1
         button2.layer.borderWidth = 1
         button3.layer.borderWidth = 1
-        
+
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
-        
+        // project 3 challenge 3
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(scoreTapped))
+        // project 12 challenge 2
+        let userDefaults = UserDefaults.standard
+        highestScore = userDefaults.object(forKey: highestScoreKey) as? Int ?? -1
         askQuestion()
-        
     }
-    func askQuestion(action: UIAlertAction! = nil) {
+
+    //MARK: - Private
+   private func askQuestion(action: UIAlertAction! = nil) {
+        currentQuestion += 1
+        // challenge 2
+        if currentQuestion > maxQuestion {
+            showResult()
+            return
+        }
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
-        allAsks += 1
-        title = countries[correctAnswer].uppercased()
+        // challenge 1
+        updateTitle()
+    }
+    // challenge 2
+    private func showResult() {
+        var message = "Questions asked: \(maxQuestion)\nFinal score: \(score)"
+        // project 12 challenge 2
+        var mustSaveHighestScore = false
+        if score > highestScore {
+            message += "\n\nNEW HIGH SCORE!\nPrevious high score: \(highestScore)"
+            highestScore = score
+            mustSaveHighestScore = true
+        }
+        let ac = UIAlertController(title: "End of the game", message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Restart game", style: .default, handler: askQuestion))
+
+        score = 0
+        correctAnswer = 0
+        currentQuestion = 0
+        present(ac, animated: true)
+        // project 12 challenge 2
+        if mustSaveHighestScore {
+            performSelector(inBackground: #selector(saveHighestScore), with: nil)
+        }
+    }
+    // challenge 1
+    private func updateTitle() {
+        title = "\(countries[correctAnswer].uppercased())? - Score [\(score)] - \(currentQuestion)/\(maxQuestion)"
     }
     
+    //MARK: - @objc methods
+    
+    // project 12 challenge 2
+    @objc func saveHighestScore() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(highestScore, forKey: highestScoreKey)
+    }
+    // project 3 challenge 3
+    @objc func scoreTapped() {
+        let ac = UIAlertController(title: "Score", message: String(score), preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(ac, animated: true)
+    }
+    
+    //MARK: - Actions
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
-        
         var title: String
+        var message: String
+        
         if sender.tag == correctAnswer {
             title = "Correct"
-            positiveAnswers += 1
             score += 1
-            scoreLabel.text =  "Your score is \(score)"
-        } else {
-            title = "Wrong, is flag \(countries[sender.tag].uppercased())"
-            negativeAnswers += 1
+            message = "Score: \(score)"
+        }
+        else {
+            title = "Wrong"
             score -= 1
-            scoreLabel.text =  "Your score is \(score)"
+            // challenge 3
+            message = """
+                You picked: \(countries[sender.tag].uppercased())
+                Flag of \(countries[correctAnswer].uppercased()) was: #\(correctAnswer + 1)
+                Score: \(score)
+                """
         }
-        if allAsks == 5 {
-            title = "You give \(allAsks) answers, positive answers \(positiveAnswers), negative answers \(negativeAnswers)"
-            scoreLabel.text =  "Score"
-            allAsks = 0
-            positiveAnswers = 0
-            negativeAnswers = 0
-            score = 0
-        }
-        
-        let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: .cancel, handler: askQuestion))
-        present(alertController, animated: true)
-        
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        // update title before presenting the alert to have a matching score in the titlebar
+        updateTitle()
+        present(ac, animated: true)
     }
-    // method call alert controller when you click on buttonItem
-    @objc func shareTaped() {
-        let title = "Your score"
-        let message = "You give \(allAsks - 1) answers, positive answers \(positiveAnswers), negative answers \(negativeAnswers)"
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Continue", style: .cancel))
-        present(alertController, animated: true)
-        }
 }
+
 
