@@ -131,7 +131,7 @@ class ViewController: UITableViewController {
     }
     
     //MARK: - Private
-
+    //project 12 task 1
     private func saveViewCount() {
         let userDefaults = UserDefaults.standard
         userDefaults.set(picturesViewCount, forKey: photosKey)
