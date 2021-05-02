@@ -77,3 +77,7 @@ Project 11 - Game "Pachinko".
 
 ![Simulator Screen Shot - iPad Air (4th generation) - 2021-04-30 at 00 18 39](https://user-images.githubusercontent.com/76879483/116619922-cb183480-a949-11eb-9aab-2bdb40824368.png) ![Simulator Screen Shot - iPad Air (4th generation) - 2021-04-30 at 00 18 57](https://user-images.githubusercontent.com/76879483/116619928-cd7a8e80-a949-11eb-80b1-3404337898fe.png)
 
+
+Project 12 - Update 1 and 2 Projects.
+
+![Simulator Screen Shot - iPhone 12 - 2021-05-02 at 13 51 22](https://user-images.githubusercontent.com/76879483/116823303-5aad2580-ab8c-11eb-95c8-557f14873ca1.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-02 at 20 07 51](https://user-images.githubusercontent.com/76879483/116823304-5bde5280-ab8c-11eb-8a24-bb966517a43c.png)
