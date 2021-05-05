@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LJ6-bw-WoY">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +12,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project13" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0d-oJ-K7N">
@@ -32,7 +31,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPm-sx-ghN">
-                                <rect key="frame" x="20" y="757" width="70" height="21"/>
+                                <rect key="frame" x="20" y="495" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="trn-za-hlr"/>
                                 </constraints>
@@ -41,13 +40,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="agB-cp-RIn">
-                                <rect key="frame" x="98" y="752" width="298" height="30"/>
+                                <rect key="frame" x="98" y="490" width="484" height="30"/>
                                 <connections>
                                     <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="n2T-KQ-FDV"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMl-3U-4Ck">
-                                <rect key="frame" x="20" y="798" width="120" height="44"/>
+                                <rect key="frame" x="20" y="536" width="120" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="OTf-uB-JUB"/>
                                     <constraint firstAttribute="width" constant="120" id="jO6-aa-1TN"/>
@@ -58,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ5-bM-5pk">
-                                <rect key="frame" x="334" y="798" width="60" height="44"/>
+                                <rect key="frame" x="520" y="536" width="60" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="30Q-Wd-rao"/>
                                 </constraints>
@@ -90,7 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CBQ-r8-7wG"/>
                     <connections>
-                        <outlet property="imgeView" destination="hJo-AV-oRj" id="Y1L-8q-E2r"/>
+                        <outlet property="imageView" destination="hJo-AV-oRj" id="Y1L-8q-E2r"/>
                         <outlet property="intensitySlider" destination="agB-cp-RIn" id="guH-fc-ebE"/>
                     </connections>
                 </viewController>

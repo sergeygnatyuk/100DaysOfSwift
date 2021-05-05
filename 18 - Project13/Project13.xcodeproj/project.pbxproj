@@ -56,7 +56,7 @@
 		4A23E62B2641835000A4076E /* Project13 */ = {
 			isa = PBXGroup;
 			children = (
-				4A23E64126418A3B00A4076E /* SUpportingFiles */,
+				4A23E64126418A3B00A4076E /* SupportingFiles */,
 				4A23E64226418A4600A4076E /* Controllers */,
 				4A23E64326418A4F00A4076E /* View */,
 				4A23E64426418A5900A4076E /* Resources */,
@@ -64,13 +64,13 @@
 			path = Project13;
 			sourceTree = "<group>";
 		};
-		4A23E64126418A3B00A4076E /* SUpportingFiles */ = {
+		4A23E64126418A3B00A4076E /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				4A23E62C2641835000A4076E /* AppDelegate.swift */,
 				4A23E62E2641835000A4076E /* SceneDelegate.swift */,
 			);
-			path = SUpportingFiles;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		4A23E64226418A4600A4076E /* Controllers */ = {
