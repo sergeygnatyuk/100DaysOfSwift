@@ -13,6 +13,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // UI
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var intensitySlider: UISlider!
+    //project 13 challenge 2
+    @IBOutlet var changeFilterButton: UIButton!
+    //project 13 challenge 3
+    @IBOutlet var radiusSlider: UISlider!
     
     // Properties
     private let titleIdentifier = "Instafilter"
@@ -33,6 +37,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         context = CIContext()
         currentFilter = CIFilter(name: filterName)
+        //project 13 challenge 2
+        changeFilterButton.setTitle("Selected (\(filterName)) filter", for: .normal)
     }
     
     //MARK: - Public
@@ -45,6 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
+        //project 13 challenge 3
+        radiusProcessing()
     }
     
     //MARK: - Private
@@ -53,10 +61,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let inputKeys = currentFilter.inputKeys
         if inputKeys.contains(kCIInputIntensityKey) {
             currentFilter.setValue(intensitySlider.value, forKey: kCIInputIntensityKey)
-        }
-        
-        if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(intensitySlider.value * 200, forKey: kCIInputRadiusKey)
         }
         
         if inputKeys.contains(kCIInputScaleKey) {
@@ -71,7 +75,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
             let processedImage = UIImage(cgImage: cgImage)
             imageView.image = processedImage
-            
+        }
+    }
+    
+    //project 13 challenge 3
+    private func radiusProcessing() {
+        let inputKeys = currentFilter.inputKeys
+        
+        if inputKeys.contains(kCIInputRadiusKey) {
+            currentFilter.setValue(radiusSlider.value * 400, forKey: kCIInputRadiusKey)
+        }
+        
+        guard let outputImage = currentFilter.outputImage else { return }
+        if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
+            let processedImage = UIImage(cgImage: cgImage)
+            imageView.image = processedImage
         }
     }
     
@@ -80,10 +98,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let actionTitle = action.title else { return }
         currentFilter = CIFilter(name: actionTitle)
         
+        
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        //project 13 challenge 2
+        changeFilterButton.setTitle("Selected (\(actionTitle)) filter", for: .normal)
         
         applyProcessing()
+        //project 13 challenge 3
+        radiusProcessing()
     }
     
     //MARK: - Actions
@@ -107,7 +130,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func save(_ sender: Any) {
-        guard let image = imageView.image else { return }
+        guard imageView.image != nil else {
+            //project 13 challenge 1
+            let ac = UIAlertController(title: "Save Error", message: "You didn't select a photo to process", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Try Again", style: .default))
+            present(ac, animated: true, completion: nil)
+            return
+        }
         UIImageWriteToSavedPhotosAlbum(imageView.image!, self,
                                        #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
@@ -115,6 +144,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func intensityChanged(_ sender: Any) {
         applyProcessing()
     }
+    
+    //project 13 challenge 3
+    @IBAction func radiusChanged(_ sender: Any) {
+        radiusProcessing()
+    }
+    
     
     //MARK: - @objc methods
     
