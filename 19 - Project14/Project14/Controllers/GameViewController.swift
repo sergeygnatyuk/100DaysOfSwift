@@ -11,22 +11,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if let view = self.view as! SKView? {
-            if let scene = SKScene(fileNamed: "GameScene") {
-                scene.scaleMode = .fill
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
-    }
-    
+    // Properties
     override var shouldAutorotate: Bool {
         return true
     }
@@ -41,5 +26,21 @@ class GameViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    //MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let view = self.view as! SKView? {
+            if let scene = SKScene(fileNamed: "GameScene") {
+                scene.scaleMode = .fill
+                view.presentScene(scene)
+            }
+            view.ignoresSiblingOrder = true
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
 }
