@@ -93,6 +93,10 @@ Project 13 - Instafilter.
 ![Simulator Screen Shot - iPhone 12 - 2021-05-06 at 15 33 48](https://user-images.githubusercontent.com/76879483/117331012-fb5a5880-ae9e-11eb-8178-92f3dcd29c79.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-06 at 15 33 26](https://user-images.githubusercontent.com/76879483/117331021-fd241c00-ae9e-11eb-8c4c-6ceb5688d03e.png)
 
 
+Project 14 - Whack-a-Penguin.
+
+![Simulator Screen Shot - iPad Air (4th generation) - 2021-05-08 at 22 13 57](https://user-images.githubusercontent.com/76879483/117550785-d0ad0300-b04a-11eb-9583-4997f0557239.png) ![Simulator Screen Shot - iPad Air (4th generation) - 2021-05-08 at 22 13 43](https://user-images.githubusercontent.com/76879483/117550786-d276c680-b04a-11eb-9ebd-3583d823ecb8.png)
+
 
 
 
