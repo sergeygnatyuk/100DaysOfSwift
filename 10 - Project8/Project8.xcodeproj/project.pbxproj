@@ -60,17 +60,49 @@
 		4AABEB32262C28D100A55229 /* Project8 */ = {
 			isa = PBXGroup;
 			children = (
+				4ABC6D9E26492E440097915E /* SupportingFiles */,
+				4ABC6DA026492E560097915E /* Controller */,
+				4ABC6DA126492E670097915E /* View */,
+				4ABC6DA226492E740097915E /* Resources */,
+			);
+			path = Project8;
+			sourceTree = "<group>";
+		};
+		4ABC6D9E26492E440097915E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
 				4AABEB33262C28D100A55229 /* AppDelegate.swift */,
 				4AABEB35262C28D100A55229 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4ABC6DA026492E560097915E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				4AABEB37262C28D100A55229 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4ABC6DA126492E670097915E /* View */ = {
+			isa = PBXGroup;
+			children = (
 				4AABEB39262C28D100A55229 /* Main.storyboard */,
-				4AABEB3C262C28D400A55229 /* Assets.xcassets */,
 				4AABEB3E262C28D400A55229 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4ABC6DA226492E740097915E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4AABEB3C262C28D400A55229 /* Assets.xcassets */,
 				4AABEB41262C28D400A55229 /* Info.plist */,
 				4A3B87E8262DE0940010DAEC /* level1.txt */,
 				4A3B87E7262DE0940010DAEC /* level2.txt */,
 			);
-			path = Project8;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +328,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project8/Info.plist;
+				INFOPLIST_FILE = Project8/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project8/Info.plist;
+				INFOPLIST_FILE = Project8/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
