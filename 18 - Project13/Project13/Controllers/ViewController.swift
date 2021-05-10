@@ -53,6 +53,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         applyProcessing()
         //project 13 challenge 3
         radiusProcessing()
+        //project 15 challenge 2
+        imageView.alpha = 0
+        dismiss(animated: true) { [weak self] in
+            UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+                self?.imageView.alpha = 1
+            })
+        }
     }
     
     //MARK: - Private
@@ -144,7 +151,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func intensityChanged(_ sender: Any) {
         applyProcessing()
     }
-    
     //project 13 challenge 3
     @IBAction func radiusChanged(_ sender: Any) {
         radiusProcessing()
