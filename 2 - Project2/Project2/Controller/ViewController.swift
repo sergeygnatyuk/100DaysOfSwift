@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     // UI
     @IBOutlet var button1: UIButton!
@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     }
 
     //MARK: - Private
+    
    private func askQuestion(action: UIAlertAction! = nil) {
         currentQuestion += 1
         // challenge 2
@@ -112,6 +113,11 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         var title: String
         var message: String
+        //project 15 challenge 3
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 2, y: 2)
+            sender.transform = .identity
+        })
         
         if sender.tag == correctAnswer {
             title = "Correct"
