@@ -64,20 +64,20 @@
 			isa = PBXGroup;
 			children = (
 				4A9B646126287B3000679BD9 /* Info.plist */,
-				4AD0D8072629CF4F00A27C1E /* Model  */,
+				4AD0D8072629CF4F00A27C1E /* Models */,
 				4AD0D80C2629CF8200A27C1E /* View */,
 				4AD0D80B2629CF7600A27C1E /* Controller */,
 			);
 			path = Project7;
 			sourceTree = "<group>";
 		};
-		4AD0D8072629CF4F00A27C1E /* Model  */ = {
+		4AD0D8072629CF4F00A27C1E /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4A9B64682628910C00679BD9 /* Petition.swift */,
 				4A9B646B262891C900679BD9 /* Petitions.swift */,
 			);
-			path = "Model ";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		4AD0D8092629CF6000A27C1E /* Supporting Files */ = {
