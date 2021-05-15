@@ -12,13 +12,17 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
     var starfield: SKEmitterNode!
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
+    var gameOverLabel: SKLabelNode!
+    var gameTimer: Timer?
     // Properties
     let fileNamedStrafield = "starfield"
     let fileNamedPlayer = "player"
-    let fileNamedChalkduster = "Chalkduster"
+    let fontNamedChalkduster = "Chalkduster"
     let fileNamedExplosion = "explosion"
     var possibleEnemies = ["ball", "hammer", "tv"]
-    var gameTimer: Timer?
+    // project 17 challenge 2
+    var interval = 0.60
+    var countTrash = 20
     var isGameOver = false
     var score = 0 {
         didSet {
@@ -27,10 +31,11 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: - Override methods
-    
     override func didMove(to view: SKView) {
+        gameTimer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+            
         backgroundColor = .black
-        
+
         starfield = SKEmitterNode(fileNamed: fileNamedStrafield)
         starfield.position = CGPoint(x: 1024, y: 384)
         starfield.advanceSimulationTime(10)
@@ -43,16 +48,20 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.contactTestBitMask = 1
         addChild(player)
         
-        scoreLabel = SKLabelNode(fontNamed: fileNamedChalkduster)
+        scoreLabel = SKLabelNode(fontNamed: fontNamedChalkduster)
         scoreLabel.position = CGPoint(x: 16, y: 16)
         scoreLabel.horizontalAlignmentMode = .left
         addChild(scoreLabel)
         score = 0
         
+        gameOverLabel = SKLabelNode(fontNamed: fontNamedChalkduster)
+        gameOverLabel.position = CGPoint(x: 520, y: 500)
+        gameOverLabel.horizontalAlignmentMode = .center
+        addChild(gameOverLabel)
+        gameOverLabel.isHidden = true
+        
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
-        
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -77,9 +86,22 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         player.position = location
     }
+    // project 17 challenge 1
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        isGameOver = true
+        gameTimer?.invalidate()
+        // project 17 challenge 3
+        player.isHidden = true
+        starfield.isHidden = true
+        scoreLabel.position = CGPoint(x: 520, y: 400)
+        scoreLabel.horizontalAlignmentMode = .center
+        scoreLabel.text = "Your Final Score \(score)"
+        gameOverLabel.isHidden = false
+        gameOverLabel.text = "GAME OVER"
+    }
     
     // MARK: - @objc methods
-    
     @objc func createEnemy() {
         guard let enemy = possibleEnemies.randomElement() else { return }
         let sprite = SKSpriteNode(imageNamed: enemy)
@@ -91,9 +113,20 @@ final class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
+        // project 17 challenge 2
+        countTrash -= 1
+        if countTrash == 0 {
+            countTrash = 20
+            gameTimer?.invalidate()
+            interval -= 0.1
+            if interval > 0 {
+                gameTimer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+            }
+        }
     }
     
-    func didBegin(_ contact: SKPhysicsContact) {
+    // MARK: - Public
+    public func didBegin(_ contact: SKPhysicsContact) {
         let explosion = SKEmitterNode(fileNamed: fileNamedExplosion)!
         explosion.position = player.position
         addChild(explosion)
