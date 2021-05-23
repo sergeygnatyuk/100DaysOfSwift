@@ -11,14 +11,20 @@ class GameScene: SKScene {
     // Dependencies
     var gameTimer: Timer?
     var fireworks = [SKNode]()
+    var gameScore: SKLabelNode!
+    // project 20 challenge 2
+    var gameOverLabel: SKLabelNode!
     
     // Properties
+    private let chalkDuster = "Chalkduster"
+    var launchCount = 0
     let leftEdge = 22
     let bottomEdge = -22
     let rightEdge = 1024 + 22
+    // project 20 challenge 1
     var score = 0 {
         didSet {
-            
+            gameScore.text = "Score \(score)"
         }
     }
     
@@ -28,6 +34,19 @@ class GameScene: SKScene {
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
+        
+        gameScore = SKLabelNode(fontNamed: chalkDuster)
+        gameScore.text = "Score: 0"
+        gameScore.position = CGPoint(x: 8, y: 8)
+        gameScore.horizontalAlignmentMode = .left
+        gameScore.fontSize = 48
+        addChild(gameScore)
+        // project 20 challenge 1
+        gameOverLabel = SKLabelNode(fontNamed: chalkDuster)
+        gameOverLabel.position = CGPoint(x: 520, y: 500)
+        gameOverLabel.horizontalAlignmentMode = .center
+        addChild(gameOverLabel)
+        gameOverLabel.isHidden = true
         
         gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
     }
@@ -40,7 +59,7 @@ class GameScene: SKScene {
         firework.colorBlendFactor = 1
         firework.name = "firework"
         node.addChild(firework)
-        
+        launchCount += 1
         switch Int.random(in: 0...2) {
         case 0:
             firework.color = .cyan
@@ -62,6 +81,16 @@ class GameScene: SKScene {
         }
         fireworks.append(node)
         addChild(node)
+        // project 20 challenge 2
+        if launchCount == 20 {
+            launchCount = 0
+            gameTimer?.invalidate()
+            gameScore.position = CGPoint(x: 520, y: 400)
+            gameScore.horizontalAlignmentMode = .center
+            gameScore.text = "Your Final Score \(score)"
+            gameOverLabel.isHidden = false
+            gameOverLabel.text = "GAME OVER"
+        }
     }
     @objc func launchFireworks() {
         let movementAmount: CGFloat = 1800
@@ -115,7 +144,6 @@ class GameScene: SKScene {
                     firework.colorBlendFactor = 1
                 }
             }
-            
             node.name = "selected"
             node.colorBlendFactor = 0
         }
@@ -136,6 +164,40 @@ class GameScene: SKScene {
                 fireworks.remove(at: index)
                 firework.removeFromParent()
             }
+        }
+    }
+    
+    func explode(fireworks: SKNode) {
+        if let emitter = SKEmitterNode(fileNamed: "explode") {
+            emitter.position = fireworks.position
+            addChild(emitter)
+        }
+        fireworks.removeFromParent()
+    }
+    
+    func explodeFireworks() {
+        var numExplode = 0
+        for (index, fireworksContainer) in fireworks.enumerated().reversed() {
+            guard let firework = fireworksContainer.children.first as? SKSpriteNode else { continue }
+            if firework.name == "selected" {
+                explode(fireworks: fireworksContainer)
+                fireworks.remove(at: index)
+                numExplode += 1
+            }
+        }
+        switch numExplode {
+        case 0:
+            break
+        case 1:
+            score += 200
+        case 2:
+            score += 500
+        case 3:
+            score += 1500
+        case 4:
+            score += 2500
+        default:
+            score += 4000
         }
     }
 }
