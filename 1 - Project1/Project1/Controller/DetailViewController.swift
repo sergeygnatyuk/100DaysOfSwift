@@ -17,14 +17,11 @@ class DetailViewController: UIViewController {
     public var totalPictures = 0
     
     //MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
                                                             target: self,
                                                             action: #selector(shareTaped))
-        
         title = "Pictures \(selectedPictureNumber) of \(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
         if let imageToLoad = selectedImage {
@@ -43,7 +40,6 @@ class DetailViewController: UIViewController {
     }
     
     //MARK: - @objc methods
-    
     //method share image
     @objc private func shareTaped() {
         guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
