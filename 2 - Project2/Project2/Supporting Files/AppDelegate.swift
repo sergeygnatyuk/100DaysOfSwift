@@ -8,13 +8,59 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        registerLocal()
         return true
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        triggeredActive()
+    }
+    
+    public func triggeredActive() {
+        registerCategories()
+        
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Want to have fun?"
+        content.body = "Time to play with world flags!"
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["customData": "flaggame"]
+        content.sound = .default
+        var dateComponents = DateComponents()
+        dateComponents.hour = 0
+        dateComponents.minute = 0
+        dateComponents.second = 10
+        //   let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
+    }
+    
+    private func registerLocal() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted {
+                print("Yay!")
+            } else {
+                print("D'oh!")
+            }
+        }
+    }
+    
+    public func registerCategories() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        // project21 challenge 2
+        let launch = UNNotificationAction(identifier: "Launch", title: "Go to flag game!")
+        let category = UNNotificationCategory(identifier: "alarm", actions: [launch], intentIdentifiers: [])
+        center.setNotificationCategories([category])
     }
 
     // MARK: UISceneSession Lifecycle

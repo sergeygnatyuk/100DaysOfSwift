@@ -48,13 +48,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4A1CC3A52618494D007ACA2B /* View */ = {
+		4A1CC3A52618494D007ACA2B /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				4A35371B2615A75000553A39 /* Main.storyboard */,
 				4A3537202615A75100553A39 /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		4A1CC3A626184958007ACA2B /* Controller */ = {
@@ -84,7 +84,7 @@
 		4A3537142615A75000553A39 /* Project2 */ = {
 			isa = PBXGroup;
 			children = (
-				4A1CC3A52618494D007ACA2B /* View */,
+				4A1CC3A52618494D007ACA2B /* Storyboard */,
 				4A1CC3A626184958007ACA2B /* Controller */,
 				4A1CC3A32618490F007ACA2B /* Supporting Files */,
 			);
