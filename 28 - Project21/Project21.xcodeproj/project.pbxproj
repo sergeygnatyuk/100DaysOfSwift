@@ -56,15 +56,47 @@
 		4A5D1CA8265C2B9300BC0476 /* Project21 */ = {
 			isa = PBXGroup;
 			children = (
-				4A5D1CA9265C2B9300BC0476 /* AppDelegate.swift */,
-				4A5D1CAB265C2B9300BC0476 /* SceneDelegate.swift */,
-				4A5D1CAD265C2B9300BC0476 /* ViewController.swift */,
-				4A5D1CAF265C2B9300BC0476 /* Main.storyboard */,
-				4A5D1CB2265C2B9600BC0476 /* Assets.xcassets */,
-				4A5D1CB4265C2B9600BC0476 /* LaunchScreen.storyboard */,
-				4A5D1CB7265C2B9600BC0476 /* Info.plist */,
+				4AA5F87C265D669D00210717 /* SupportingFiles */,
+				4AA5F87D265D66B000210717 /* Controller */,
+				4AA5F87F265D66BC00210717 /* Storyboard */,
+				4AA5F880265D66CA00210717 /* Resources */,
 			);
 			path = Project21;
+			sourceTree = "<group>";
+		};
+		4AA5F87C265D669D00210717 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4A5D1CA9265C2B9300BC0476 /* AppDelegate.swift */,
+				4A5D1CAB265C2B9300BC0476 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4AA5F87D265D66B000210717 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4A5D1CAD265C2B9300BC0476 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4AA5F87F265D66BC00210717 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4A5D1CAF265C2B9300BC0476 /* Main.storyboard */,
+				4A5D1CB4265C2B9600BC0476 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4AA5F880265D66CA00210717 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A5D1CB2265C2B9600BC0476 /* Assets.xcassets */,
+				4A5D1CB7265C2B9600BC0476 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project21/Info.plist;
+				INFOPLIST_FILE = Project21/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = Project21/Info.plist;
+				INFOPLIST_FILE = Project21/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
