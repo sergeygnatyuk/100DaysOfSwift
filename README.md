@@ -122,7 +122,17 @@ Projects 16-18 Milestonу - Shooting Gallery
 
 ![Simulator Screen Shot - iPad (8th generation) - 2021-05-18 at 19 21 42](https://user-images.githubusercontent.com/76879483/118689176-6563ed80-b80f-11eb-87c8-f0cdc25a76e2.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-05-18 at 19 20 56](https://user-images.githubusercontent.com/76879483/118689185-66951a80-b80f-11eb-8619-620c094adbe6.png)
 
+
 Project 20 - Fireworks Night.
 
 ![Simulator Screen Shot - iPad (8th generation) - 2021-05-23 at 20 21 45](https://user-images.githubusercontent.com/76879483/119270324-d2f38d80-bc04-11eb-8199-1a7fbce6e022.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-05-23 at 20 21 57](https://user-images.githubusercontent.com/76879483/119270325-d4bd5100-bc04-11eb-813e-23372a3203ea.png)
+
+
+Project 21 - Local Notifications.
+
+![Simulator Screen Shot - iPhone 12 - 2021-05-26 at 01 04 21](https://user-images.githubusercontent.com/76879483/119574637-7340e200-bdbe-11eb-87ab-b7c20d844dc3.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-26 at 01 04 14](https://user-images.githubusercontent.com/76879483/119574644-74720f00-bdbe-11eb-8fba-fb170bac1714.png)
+
+
+
+
 
