@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cellIdentifier = "cell"
     let systemNameIconCellImage = "pencil.tip.crop.circle"
     let titleNamed = "Notes"
+    let arrayNotes = [String]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        view.backgroundColor = .cyan
+        tableView.tableFooterView = UIView()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                            target: self,
+                                                            action: #selector(editNotes))
+        navigationItem.largeTitleDisplayMode = .never
+        
+       
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,8 +40,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.frame = view.bounds
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 5//arrayNotes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,7 +55,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("tapped")
+        let secondViewController = SecondViewController()
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
+    
+    @objc func editNotes() { }
 }
 
