@@ -11,25 +11,24 @@ class SecondViewController: UIViewController {
     
     // Dependencies
     let textView = UITextView()
-
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(textView)
         textView.font = .systemFont(ofSize: 20)
-       // textView.delegate = self
+        // textView.delegate = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
                                                             target: self,
                                                             action: #selector(saveNotes))
     }
     
-    
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         textView.frame = view.bounds
     }
-
+    
+    // MARK: - @objc methods
     @objc func saveNotes() {
-        
     }
 }
