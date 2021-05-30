@@ -2,11 +2,12 @@
 //  AppDelegate.swift
 //  Project 19-21 Milestone
 //
-//  Created by Гнатюк Сергей on 26.05.2021.
+//  Created by Гнатюк Сергей on 30.05.2021.
 //
 
 import UIKit
 
+@available(iOS 13.0, *)
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

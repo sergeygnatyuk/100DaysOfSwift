@@ -2,130 +2,139 @@
 //  ViewController.swift
 //  Project 19-21 Milestone
 //
-//  Created by Гнатюк Сергей on 26.05.2021.
+//  Created by Гнатюк Сергей on 30.05.2021.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+@available(iOS 13.0, *)
+class ViewController: UITableViewController {
+    // UI
+    var notes = [Note]()
     
-    // Dependencies
-    let tableView = UITableView()
-    
-    //Properties
-    let cellIdentifier = "cell"
-    let systemNameIconCellImage = "pencil.tip.crop.circle"
-    let titleNamed = "Notes"
-    var arrayNotes = ["Notes 1", "Notes 2", "Notes 3"]
-    var isFavourite = false
+    lazy var toolBarLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 20))
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.text = "No Notes"
+        label.textAlignment = .center
+        return label
+    }()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = titleNamed
-        view.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        //        navigationItem.leftBarButtonItem = self.editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
-                                                            target: self,
-                                                            action: #selector(editNotes))
-        navigationItem.largeTitleDisplayMode = .never
-        view.addSubview(resultsLabel)
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": resultsLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: ["v0": resultsLabel]))
-        if arrayNotes != [] {
-            resultsLabel.isHidden = true
-        } else {
-            resultsLabel.isHidden = false
+        title = "Notes"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPressed))
+        
+        navigationController?.isToolbarHidden = false
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let create = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(createNote))
+        let label = UIBarButtonItem(customView: toolBarLabel)
+        
+        create.tintColor = UIColor().colorFromHex("#E8A200")
+        
+        
+        toolbarItems = [space, label, space, create]
+        navigationController?.toolbar.barTintColor = UIColor().colorFromHex("#EBEBEB")
+        navigationController?.toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
+        
+        self.loadNotes()
+        tableView.backgroundColor = UIColor().colorFromHex("#EBEBEB")
+        tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    // MARK: - UITableView
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? NoteCell {
+            let detail = notes[indexPath.row].detail
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/M/yy"
+            let dateStr = formatter.string(from: notes[indexPath.row].date)
+            
+            var sentences = detail.components(separatedBy: "\n")
+            cell.titleLabel?.text = sentences.removeFirst()
+            cell.dateLabel?.text = dateStr
+            cell.detailLabel?.text = sentences.joined(separator: "\n")
+            return cell
         }
+        return UITableViewCell()
     }
     
-    let resultsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "ADD NEW NOTE"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .cyan
-        return label
-    }()
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
     }
     
-    // MARK: - TableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayNotes.count
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        loadDetailView(notes[indexPath.row])
     }
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row + 1)"
-        cell.imageView?.image = UIImage(systemName: systemNameIconCellImage)
-        cell.imageView?.tintColor = .cyan
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let secondViewController = SecondViewController()
-        navigationController?.pushViewController(secondViewController, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            arrayNotes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let done = doneAction(at: indexPath)
-        let favorite = favoriteAction(at: indexPath)
-        favorite.backgroundColor = .gray
-        return UISwipeActionsConfiguration(actions: [done, favorite])
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            notes.remove(at: indexPath.row)
+            tableView.reloadData()
+            updateToolBarLabel()
+        }
     }
     
-    private func doneAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Done") { (action, view, completion) in
-            self.arrayNotes.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
+    // MARK: - Public
+    public func loadDetailView(_ note: Note) {
+        if let viewController = storyboard?.instantiateViewController(identifier: "detail") as? DetailViewController {
+            viewController.note = note
+            viewController.delegate = self
+            navigationController?.pushViewController(viewController, animated: true)
         }
-        action.backgroundColor = .systemYellow
-        action.image = UIImage(systemName: "checkmark.circle")
-        return action
-    }
-    private func favoriteAction (at indexPath: IndexPath) -> UIContextualAction {
-        let object = arrayNotes[indexPath.row]
-        let action = UIContextualAction(style: .normal, title: "Favorite") { (action, view, completion) in
-            //             object.isFavourite = !object.isFavourite
-            self.arrayNotes[indexPath.row] = object
-            completion(true)
-        }
-        
-        action.image = UIImage(systemName: "heart")
-        action.backgroundColor = .black
-        return action
     }
     
-    @objc func editNotes() {
-        let newNotes = String()
-        arrayNotes.append(newNotes)
+    public func updateToolBarLabel() {
+        toolBarLabel.text = "\(notes.count) Notes"
+    }
+    
+    public func saveNotes() {
+        if let data = try? JSONEncoder().encode(notes) {
+            UserDefaults.standard.set(data, forKey: "notes")
+        }
+    }
+    
+    public func loadNotes() {
+        guard let data = UserDefaults.standard.object(forKey: "notes") as? Data else {
+            print("Can't find notes")
+            return
+        }
+        do {
+            notes = try JSONDecoder().decode([Note].self, from: data)
+            updateToolBarLabel()
+        } catch {
+            print("fail to decode")
+        }
+    }
+    
+    // MARK: - @objc methods
+    @objc private func editPressed() {
+    }
+    
+    @objc private func createNote() {
+        let note = Note()
+        notes.insert(note, at: 0)
+        loadDetailView(note)
     }
 }
 
