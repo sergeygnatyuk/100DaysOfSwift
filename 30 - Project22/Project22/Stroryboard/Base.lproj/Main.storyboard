@@ -17,7 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osN-ld-624">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Sy-qM-RBB">
+                                <rect key="frame" x="79" y="325" width="256" height="256"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="0fQ-Yc-ZXn"/>
+                                    <constraint firstAttribute="height" constant="256" id="uJm-5f-Ca0"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vo-MR-HgN">
                                 <rect key="frame" x="111" y="424" width="192" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <nil key="textColor"/>
@@ -27,12 +35,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="osN-ld-624" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OHJ-FK-Vg4"/>
-                            <constraint firstItem="osN-ld-624" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fZh-iT-Zfl"/>
+                            <constraint firstItem="9Sy-qM-RBB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="5" id="IdV-QU-dxa"/>
+                            <constraint firstItem="9Sy-qM-RBB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tte-FL-C0L"/>
+                            <constraint firstItem="8vo-MR-HgN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sOa-G9-Ral"/>
+                            <constraint firstItem="8vo-MR-HgN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sPz-4y-2SJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="distanceReading" destination="osN-ld-624" id="lsO-gt-xxG"/>
+                        <outlet property="circleView" destination="9Sy-qM-RBB" id="3VR-Gy-rBi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

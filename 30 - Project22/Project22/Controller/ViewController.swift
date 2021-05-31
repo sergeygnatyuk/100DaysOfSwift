@@ -12,10 +12,12 @@ class ViewController: UIViewController {
     
     // UI
     @IBOutlet var distanceReading: UILabel!
+    @IBOutlet var circleView: UIView!
     
     // Properties
     let uuidStringIdentifier = "5A4BCFCE-174E-4BAC-A814-092E77F687E5"
     let beaconIdentifier = "MyBeacon"
+    var isFirstBeaconDetected = false
     
     // Dependencies
     var locationManager: CLLocationManager?
@@ -25,8 +27,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         locationManager = CLLocationManager()
         locationManager?.delegate = self
-        locationManager?.requestWhenInUseAuthorization()
-        view.backgroundColor = .gray
+        locationManager?.requestAlwaysAuthorization()
+        view.backgroundColor = .white
+        circleView.backgroundColor = .cyan
+        circleView.layer.cornerRadius = 128
+        
     }
 }
 

@@ -39,6 +39,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A6040582665952F007EA5DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4AFE5E1D265FE23000EFFFFE = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +65,7 @@
 		4AFE5E28265FE23000EFFFFE /* Project22 */ = {
 			isa = PBXGroup;
 			children = (
+				4A6040582665952F007EA5DC /* View */,
 				4AFE5E41265FE2DF00EFFFFE /* SupportingFiles */,
 				4AFE5E40265FE2D600EFFFFE /* Controller */,
 				4AFE5E3F265FE2C400EFFFFE /* Stroryboard */,
