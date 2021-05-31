@@ -83,7 +83,7 @@ Project 12 - Update 1 and 2 Projects.
 ![Simulator Screen Shot - iPhone 12 - 2021-05-02 at 13 51 22](https://user-images.githubusercontent.com/76879483/116823303-5aad2580-ab8c-11eb-95c8-557f14873ca1.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-02 at 20 07 51](https://user-images.githubusercontent.com/76879483/116823304-5bde5280-ab8c-11eb-8a24-bb966517a43c.png)
 
 
-Projects 9-12 Milestonу - Picture Capture.
+Projects 9-12 Milestone - Picture Capture.
 
 ![Simulator Screen Shot - iPhone 12 - 2021-05-03 at 01 28 44](https://user-images.githubusercontent.com/76879483/116830251-99090b80-abb1-11eb-976d-138152a574d9.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-03 at 01 29 29](https://user-images.githubusercontent.com/76879483/116830253-9a3a3880-abb1-11eb-838a-4fdd2c5353f3.png)
 
@@ -103,7 +103,7 @@ Project 15 - Animation.
 ![Simulator Screen Shot - iPad Air (4th generation) - 2021-05-10 at 21 16 18](https://user-images.githubusercontent.com/76879483/117705760-1f86a400-b1d5-11eb-85d0-f6c8c891a398.png) ![Simulator Screen Shot - iPad Air (4th generation) - 2021-05-10 at 21 16 44](https://user-images.githubusercontent.com/76879483/117705763-20b7d100-b1d5-11eb-9af4-372429eddee8.png)
 
 
-Projects 13-15 Milestonу - Facts about Countries.
+Projects 13-15 Milestone - Facts about Countries.
 
 ![Simulator Screen Shot - iPhone 12 - 2021-05-12 at 01 19 45](https://user-images.githubusercontent.com/76879483/117993362-57fabf00-b348-11eb-858c-c00736c750e0.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-12 at 01 19 35](https://user-images.githubusercontent.com/76879483/117993369-58935580-b348-11eb-9916-2f61b46901ad.png)
 
@@ -118,7 +118,7 @@ Project 17 - Space Race.
 ![Simulator Screen Shot - iPad Air (4th generation) - 2021-05-15 at 23 14 08](https://user-images.githubusercontent.com/76879483/118376899-6577a980-b5d3-11eb-8798-70180a937c10.png) ![Simulator Screen Shot - iPad Air (4th generation) - 2021-05-15 at 23 14 19](https://user-images.githubusercontent.com/76879483/118376901-66a8d680-b5d3-11eb-9663-8755b955451d.png)
 
 
-Projects 16-18 Milestonу - Shooting Gallery
+Projects 16-18 Milestone - Shooting Gallery
 
 ![Simulator Screen Shot - iPad (8th generation) - 2021-05-18 at 19 21 42](https://user-images.githubusercontent.com/76879483/118689176-6563ed80-b80f-11eb-87c8-f0cdc25a76e2.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-05-18 at 19 20 56](https://user-images.githubusercontent.com/76879483/118689185-66951a80-b80f-11eb-8619-620c094adbe6.png)
 
@@ -133,6 +133,10 @@ Project 21 - Local Notifications.
 ![Simulator Screen Shot - iPhone 12 - 2021-05-26 at 01 04 21](https://user-images.githubusercontent.com/76879483/119574637-7340e200-bdbe-11eb-87ab-b7c20d844dc3.png) ![Simulator Screen Shot - iPhone 12 - 2021-05-26 at 01 04 14](https://user-images.githubusercontent.com/76879483/119574644-74720f00-bdbe-11eb-8fba-fb170bac1714.png)
 
 
+
+Projects 19-21 Milestone - Notes.
+
+![Simulator Screen Shot - iPhone 12 - 2021-06-01 at 00 55 35](https://user-images.githubusercontent.com/76879483/120245003-877c5780-c274-11eb-88c9-a8b684253dcc.png) ![Simulator Screen Shot - iPhone 12 - 2021-06-01 at 00 55 29](https://user-images.githubusercontent.com/76879483/120245006-88ad8480-c274-11eb-9456-e581dd2a78c0.png)
 
 
 
