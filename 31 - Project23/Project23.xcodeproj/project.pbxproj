@@ -25,6 +25,7 @@
 		4A65623C2666B6E6002DB7EE /* swoosh2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6562312666B6E6002DB7EE /* swoosh2.caf */; };
 		4A65623D2666B6E6002DB7EE /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6562322666B6E6002DB7EE /* whack.caf */; };
 		4A65623E2666B6E6002DB7EE /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6562332666B6E6002DB7EE /* wrong.caf */; };
+		4A7412D42667FEBB0001BFE3 /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7412D32667FEBB0001BFE3 /* SequenceType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		4A6562312666B6E6002DB7EE /* swoosh2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh2.caf; sourceTree = "<group>"; };
 		4A6562322666B6E6002DB7EE /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		4A6562332666B6E6002DB7EE /* wrong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.caf; sourceTree = "<group>"; };
+		4A7412D32667FEBB0001BFE3 /* SequenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3351BA2666D07100B8B92D /* Bomb.swift */,
+				4A7412D32667FEBB0001BFE3 /* SequenceType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7412D42667FEBB0001BFE3 /* SequenceType.swift in Sources */,
 				4A6562162666B5F1002DB7EE /* GameScene.swift in Sources */,
 				4A3351BB2666D07100B8B92D /* Bomb.swift in Sources */,
 				4A6562182666B5F1002DB7EE /* GameViewController.swift in Sources */,

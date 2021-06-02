@@ -9,5 +9,7 @@ import Foundation
 import SpriteKit
 
 enum ForceBomb {
-    case never, always, random
+    case never
+    case always
+    case random
 }
