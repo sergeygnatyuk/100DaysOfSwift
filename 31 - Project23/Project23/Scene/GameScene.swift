@@ -17,24 +17,6 @@ class GameScene: SKScene {
     var bombSoundEffect: AVAudioPlayer?
     
     // Properties
-    let backgroundImage = "sliceBackground"
-    let lifeImageName = "sliceLife"
-    let bombImageName = "sliceBomb"
-    let fontName = "Chalkduster"
-    let penguinImage = "penguin"
-    let soundName = "launch.caf"
-    let whackCafSound = "whack.caf"
-    let explosionCafSound = "explosion.caf"
-    let wrongCaf = "wrong.caf"
-    let enemyName = "enemy"
-    let bombContainerName = "bombContainer"
-    let bombName = "bomb"
-    let sliceBombFuse = "sliceBombFuse"
-    let extensionBombFuse = "caf"
-    let sliceFuse = "sliceFuse"
-    let sliceHitEnemy = "sliceHitEnemy"
-    let sliceHitBomb = "sliceHitBomb"
-    let sliceLifeGone = "sliceLifeGone"
     var lives = 3
     var popupType = 0.9
     var sequence = [SequenceType]()
@@ -46,7 +28,6 @@ class GameScene: SKScene {
     var livesImages = [SKSpriteNode]()
     var activateEnemies = [SKSpriteNode]()
     var activeSlicePoints = [CGPoint]()
-    
     var score = 0 {
         didSet {
             gameScore.text = "Score: \(score)"
@@ -55,7 +36,7 @@ class GameScene: SKScene {
     
     // MARK: - View
     override func didMove(to view: SKView) {
-        let background = SKSpriteNode(imageNamed: backgroundImage)
+        let background = SKSpriteNode(imageNamed: Images.backgroundImage)
         background.position = CGPoint(x: 512, y: 384)
         background.blendMode = .replace
         background.zPosition = -1
@@ -87,13 +68,13 @@ class GameScene: SKScene {
                 if node.position.y < -140 {
                     node.removeAllActions()
                     
-                    if node.name == enemyName {
+                    if node.name == Images.Extension.enemyName {
                         node.name = ""
                         subtractLife()
                         
                         node.removeFromParent()
                         activateEnemies.remove(at: index)
-                    } else if node.name == bombContainerName {
+                    } else if node.name == Images.Extension.bombContainerName {
                         node.name = ""
                         node.removeFromParent()
                         activateEnemies.remove(at: index)
@@ -111,7 +92,7 @@ class GameScene: SKScene {
         }
         var bombCount = 0
         for node in activateEnemies {
-            if node.name == bombContainerName {
+            if node.name == Images.Extension.bombContainerName {
                 bombCount += 1
                 break
             }
@@ -138,8 +119,8 @@ class GameScene: SKScene {
         
         let nodesAtPoint = nodes(at: location)
         for case let node as SKSpriteNode in nodesAtPoint {
-            if node.name == enemyName {
-                if let emitter = SKEmitterNode(fileNamed: sliceHitEnemy) {
+            if node.name == Images.Extension.enemyName {
+                if let emitter = SKEmitterNode(fileNamed: Images.Extension.sliceHitEnemy) {
                     emitter.position = node.position
                     addChild(emitter)
                 }
@@ -159,10 +140,10 @@ class GameScene: SKScene {
                     activateEnemies.remove(at: index)
                 }
                 
-                run(SKAction.playSoundFileNamed(whackCafSound, waitForCompletion: false))
-            } else if node.name == bombName{
+                run(SKAction.playSoundFileNamed(Images.Sound.soundWhack, waitForCompletion: false))
+            } else if node.name == Images.Extension.bombName {
                 guard let bombContainer = node.parent as? SKSpriteNode else { continue }
-                if let emitter = SKEmitterNode(fileNamed: sliceHitBomb) {
+                if let emitter = SKEmitterNode(fileNamed: Images.Extension.sliceHitBomb) {
                     emitter.position = bombContainer.position
                     addChild(emitter)
                 }
@@ -179,7 +160,7 @@ class GameScene: SKScene {
                 if let index = activateEnemies.firstIndex(of: bombContainer) {
                     activateEnemies.remove(at: index)
                 }
-                run(SKAction.playSoundFileNamed(explosionCafSound, waitForCompletion: false))
+                run(SKAction.playSoundFileNamed(Images.Sound.soundExplosion, waitForCompletion: false))
                 endGame(triggeredByBomb: false)
             }
         }
@@ -208,7 +189,7 @@ class GameScene: SKScene {
     
     // MARK: - Private
     private func createScore() {
-        gameScore = SKLabelNode(fontNamed: fontName)
+        gameScore = SKLabelNode(fontNamed: Images.Font.fontChalkduster)
         gameScore.horizontalAlignmentMode = .left
         gameScore.fontSize = 48
         addChild(gameScore)
@@ -219,7 +200,7 @@ class GameScene: SKScene {
     
     private func createLives() {
         for i in 0..<3 {
-            let spriteNode = SKSpriteNode(imageNamed: lifeImageName)
+            let spriteNode = SKSpriteNode(imageNamed: Images.lifeImage)
             spriteNode.position = CGPoint(x: CGFloat(834 + (i * 70)), y: 720)
             addChild(spriteNode)
             livesImages.append(spriteNode)
@@ -288,31 +269,31 @@ class GameScene: SKScene {
         if enemyType == 0 {
             enemy = SKSpriteNode()
             enemy.zPosition = 1
-            enemy.name = bombContainerName
+            enemy.name = Images.Extension.bombContainerName
             
-            let bombImage = SKSpriteNode(imageNamed: bombImageName)
-            bombImage.name = bombName
+            let bombImage = SKSpriteNode(imageNamed: Images.bombImage)
+            bombImage.name = Images.Extension.bombName
             enemy.addChild(bombImage)
             
             if bombSoundEffect != nil {
                 bombSoundEffect?.stop()
                 bombSoundEffect = nil
             }
-            if let path = Bundle.main.url(forResource: sliceBombFuse, withExtension: extensionBombFuse) {
+            if let path = Bundle.main.url(forResource: Images.Extension.sliceBombFuse, withExtension: Images.Sound.soundExplosion) {
                 if let sound = try? AVAudioPlayer(contentsOf: path) {
                     bombSoundEffect = sound
                     sound.play()
                 }
             }
-            if let emitter = SKEmitterNode(fileNamed: sliceFuse) {
+            if let emitter = SKEmitterNode(fileNamed:  Images.Extension.sliceFuse) {
                 emitter.position = CGPoint(x: 76, y: 64)
                 enemy.addChild(emitter)
             }
             
         } else {
-            enemy = SKSpriteNode(imageNamed: penguinImage)
-            run(SKAction.playSoundFileNamed(soundName, waitForCompletion: false))
-            enemy.name = enemyName
+            enemy = SKSpriteNode(imageNamed: Images.penguinImage)
+            run(SKAction.playSoundFileNamed(Images.Sound.soundLaunch, waitForCompletion: false))
+            enemy.name = Images.Extension.enemyName
         }
         let randomPosition = CGPoint(x: Int.random(in: 64...960), y: -128)
         enemy.position = randomPosition
@@ -393,8 +374,8 @@ class GameScene: SKScene {
             DispatchQueue.main.asyncAfter(deadline: .now() + (chainDelay / 10.0 * 4)) {
                 [weak self] in self?.createEnemy() }
         }
-            sequencePosition += 1
-            nextSequenceQueued = false
+        sequencePosition += 1
+        nextSequenceQueued = false
     }
     
     private func endGame(triggeredByBomb: Bool) {
@@ -408,16 +389,16 @@ class GameScene: SKScene {
         bombSoundEffect = nil
         
         if triggeredByBomb {
-            livesImages[0].texture = SKTexture(imageNamed: sliceLifeGone)
-            livesImages[1].texture = SKTexture(imageNamed: sliceLifeGone)
-            livesImages[2].texture = SKTexture(imageNamed: sliceLifeGone)
+            livesImages[0].texture = SKTexture(imageNamed: Images.Extension.sliceLifeGone)
+            livesImages[1].texture = SKTexture(imageNamed: Images.Extension.sliceLifeGone)
+            livesImages[2].texture = SKTexture(imageNamed: Images.Extension.sliceLifeGone)
         }
     }
     
     private func subtractLife() {
         lives -= 1
         
-        run(SKAction.playSoundFileNamed(wrongCaf, waitForCompletion: false))
+        run(SKAction.playSoundFileNamed(Images.Sound.soundWrong, waitForCompletion: false))
         
         var life: SKSpriteNode
         if lives == 2 {
@@ -428,7 +409,7 @@ class GameScene: SKScene {
             life = livesImages[2]
             endGame(triggeredByBomb: false)
         }
-        life.texture = SKTexture(imageNamed: sliceLifeGone)
+        life.texture = SKTexture(imageNamed: Images.Extension.sliceLifeGone)
         life.xScale = 1.3
         life.yScale = 1.3
         life.run(SKAction.scale(by: 1, duration: 0.1))

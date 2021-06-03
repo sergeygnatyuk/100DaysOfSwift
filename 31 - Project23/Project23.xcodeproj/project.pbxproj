@@ -26,6 +26,7 @@
 		4A65623D2666B6E6002DB7EE /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6562322666B6E6002DB7EE /* whack.caf */; };
 		4A65623E2666B6E6002DB7EE /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 4A6562332666B6E6002DB7EE /* wrong.caf */; };
 		4A7412D42667FEBB0001BFE3 /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7412D32667FEBB0001BFE3 /* SequenceType.swift */; };
+		4AB604E426694948009A6B98 /* Images .swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB604E326694948009A6B98 /* Images .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		4A6562322666B6E6002DB7EE /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		4A6562332666B6E6002DB7EE /* wrong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.caf; sourceTree = "<group>"; };
 		4A7412D32667FEBB0001BFE3 /* SequenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
+		4AB604E326694948009A6B98 /* Images .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Images .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		4A65620E2666B5F1002DB7EE /* Project23 */ = {
 			isa = PBXGroup;
 			children = (
+				4AB604E22669490C009A6B98 /* Sources */,
 				4A3351B92666D05F00B8B92D /* Models */,
 				4A6562432666B70E002DB7EE /* SupportingFiles */,
 				4A6562422666B707002DB7EE /* Scene */,
@@ -152,6 +155,14 @@
 				4A65620F2666B5F1002DB7EE /* AppDelegate.swift */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		4AB604E22669490C009A6B98 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4AB604E326694948009A6B98 /* Images .swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			files = (
 				4A7412D42667FEBB0001BFE3 /* SequenceType.swift in Sources */,
 				4A6562162666B5F1002DB7EE /* GameScene.swift in Sources */,
+				4AB604E426694948009A6B98 /* Images .swift in Sources */,
 				4A3351BB2666D07100B8B92D /* Bomb.swift in Sources */,
 				4A6562182666B5F1002DB7EE /* GameViewController.swift in Sources */,
 				4A6562102666B5F1002DB7EE /* AppDelegate.swift in Sources */,
