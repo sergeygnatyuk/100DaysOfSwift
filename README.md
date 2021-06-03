@@ -143,3 +143,7 @@ Project 22 - Detect-a-Beacon.
 
 ![Simulator Screen Shot - iPhone 12 - 2021-06-01 at 02 04 59](https://user-images.githubusercontent.com/76879483/120248165-c1525b80-c27e-11eb-974b-0aeeef045649.png) ![Simulator Screen Shot - iPhone 12 - 2021-06-01 at 02 04 55](https://user-images.githubusercontent.com/76879483/120248168-c2838880-c27e-11eb-86ed-ad427a1b3be0.png)
 
+
+Project 23 - Swifty Ninja.
+
+![Simulator Screen Shot - iPad (8th generation) - 2021-06-03 at 23 00 58](https://user-images.githubusercontent.com/76879483/120705619-b981f980-c4c0-11eb-9718-ce56c8ef2fa7.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-06-03 at 23 00 48](https://user-images.githubusercontent.com/76879483/120705620-bab32680-c4c0-11eb-96e3-472823a384f9.png)
