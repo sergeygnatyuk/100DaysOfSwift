@@ -8,12 +8,13 @@
 import AVFoundation
 import SpriteKit
 
-class GameScene: SKScene {
+final class GameScene: SKScene {
     
     // Dependencies
     var activeSliceBG: SKShapeNode!
     var activeSliceFG: SKShapeNode!
     var gameScore: SKLabelNode!
+    var gameOverLabel: SKLabelNode!
     var bombSoundEffect: AVAudioPlayer?
     
     // Properties
@@ -26,13 +27,28 @@ class GameScene: SKScene {
     var isSwooshSoundActive = false
     var isGameEnded = false
     var livesImages = [SKSpriteNode]()
-    var activateEnemies = [SKSpriteNode]()
+    var activeEnemies = [SKSpriteNode]()
     var activeSlicePoints = [CGPoint]()
     var score = 0 {
         didSet {
             gameScore.text = "Score: \(score)"
         }
     }
+    
+    //project 23 challenge 1
+    let xRandomPositionRange = 64...960
+    let yPosition = -128
+    let randomAngularVelocityRange: ClosedRange<CGFloat> = -3...3
+    let randomYVelocityRange = 24...32
+    let enemyVelocityX: [(CGFloat, ClosedRange<Int>)] = [
+        (maxPosition: 256, range: 8...15),
+        (maxPosition: 512, range: 3...5),
+        (maxPosition: 768, range: -5...(-3)),
+        (maxPosition: 961, range: -15...(-8))
+    ]
+    //project 23 challenge 2
+    let enemyVelocityMultiplier = 40
+    let fastEnemyVelocityMultiplier = 50
     
     // MARK: - View
     override func didMove(to view: SKView) {
@@ -48,6 +64,7 @@ class GameScene: SKScene {
         createScore()
         createLives()
         createSlices()
+        createGameOver()
         
         sequence = [.oneNoBomb, .oneNoBomb, .twoWithOneBomb, .twoWithOneBomb, .three, .one, .chain]
         
@@ -63,8 +80,11 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if activateEnemies.count > 0 {
-            for (index, node) in activateEnemies.enumerated().reversed() {
+        //project 23 challenge 3
+        guard isGameEnded == false else { return }
+        
+        if activeEnemies.count > 0 {
+            for (index, node) in activeEnemies.enumerated().reversed() {
                 if node.position.y < -140 {
                     node.removeAllActions()
                     
@@ -73,11 +93,17 @@ class GameScene: SKScene {
                         subtractLife()
                         
                         node.removeFromParent()
-                        activateEnemies.remove(at: index)
+                        activeEnemies.remove(at: index)
                     } else if node.name == Images.Extension.bombContainerName {
                         node.name = ""
                         node.removeFromParent()
-                        activateEnemies.remove(at: index)
+                        activeEnemies.remove(at: index)
+                    }
+                    //project 23 challenge 2
+                    else if node.name == Images.Extension.bombContainerName || node.name == Images.Extension.fastEnemyName {
+                        node.name = ""
+                        node.removeFromParent()
+                        activeEnemies.remove(at: index)
                     }
                 }
             }
@@ -91,7 +117,7 @@ class GameScene: SKScene {
             }
         }
         var bombCount = 0
-        for node in activateEnemies {
+        for node in activeEnemies {
             if node.name == Images.Extension.bombContainerName {
                 bombCount += 1
                 break
@@ -119,7 +145,12 @@ class GameScene: SKScene {
         
         let nodesAtPoint = nodes(at: location)
         for case let node as SKSpriteNode in nodesAtPoint {
-            if node.name == Images.Extension.enemyName {
+            //project 23 challenge 2
+            if node.name == Images.Extension.fastEnemyName {
+                score += 4
+            }
+            //project 23 challenge 2
+            if node.name == Images.Extension.enemyName || node.name == Images.Extension.fastEnemyName {
                 if let emitter = SKEmitterNode(fileNamed: Images.Extension.sliceHitEnemy) {
                     emitter.position = node.position
                     addChild(emitter)
@@ -136,8 +167,8 @@ class GameScene: SKScene {
                 
                 score += 1
                 
-                if let index = activateEnemies.firstIndex(of: node) {
-                    activateEnemies.remove(at: index)
+                if let index = activeEnemies.firstIndex(of: node) {
+                    activeEnemies.remove(at: index)
                 }
                 
                 run(SKAction.playSoundFileNamed(Images.Sound.soundWhack, waitForCompletion: false))
@@ -157,8 +188,8 @@ class GameScene: SKScene {
                 let seq = SKAction.sequence([group, .removeFromParent()])
                 bombContainer.run(seq)
                 
-                if let index = activateEnemies.firstIndex(of: bombContainer) {
-                    activateEnemies.remove(at: index)
+                if let index = activeEnemies.firstIndex(of: bombContainer) {
+                    activeEnemies.remove(at: index)
                 }
                 run(SKAction.playSoundFileNamed(Images.Sound.soundExplosion, waitForCompletion: false))
                 endGame(triggeredByBomb: false)
@@ -196,6 +227,14 @@ class GameScene: SKScene {
         
         gameScore.position = CGPoint(x: 8, y: 8)
         score = 0
+    }
+    //project 23 challenge 3
+    private func createGameOver() {
+        gameOverLabel = SKLabelNode(fontNamed: Images.Font.fontChalkduster)
+        gameOverLabel.fontSize = 60
+        gameOverLabel.position = CGPoint(x: 512, y: 384)
+        gameOverLabel.text = "GAME OVER"
+        gameOverLabel.zPosition = 1
     }
     
     private func createLives() {
@@ -258,8 +297,8 @@ class GameScene: SKScene {
     
     private func createEnemy(forceBomb: ForceBomb = .random) {
         let enemy: SKSpriteNode
-        
-        var enemyType = Int.random(in: 0...6)
+        //project 23 challenge 2
+        var enemyType = Int.random(in: 0...7)
         
         if forceBomb == .never {
             enemyType = 1
@@ -289,37 +328,42 @@ class GameScene: SKScene {
                 emitter.position = CGPoint(x: 76, y: 64)
                 enemy.addChild(emitter)
             }
+            //project 23 challenge 2
+        } else if enemyType == 7 {
+            enemy = SKSpriteNode(imageNamed: Images.fastPenguinImage)
+            run(SKAction.playSoundFileNamed(Images.Sound.soundLaunch, waitForCompletion: false))
+            enemy.name = Images.Extension.fastEnemyName
             
         } else {
             enemy = SKSpriteNode(imageNamed: Images.penguinImage)
             run(SKAction.playSoundFileNamed(Images.Sound.soundLaunch, waitForCompletion: false))
             enemy.name = Images.Extension.enemyName
         }
-        let randomPosition = CGPoint(x: Int.random(in: 64...960), y: -128)
+        //project 23 challenge 1
+        let randomPosition = CGPoint(x: Int.random(in: xRandomPositionRange), y: yPosition)
         enemy.position = randomPosition
         
-        let randomAngularVelocity = CGFloat.random(in: -3...3)
-        let randomXVelocity: Int
+        let randomAngularVelocity = CGFloat.random(in: randomAngularVelocityRange)
+        var randomXVelocity: Int = 1
         
-        if randomPosition.x < 256 {
-            randomXVelocity = Int.random(in: 8...15)
-        } else if randomPosition.x < 512 {
-            randomXVelocity = Int.random(in: 3...5)
-        } else if randomPosition.x < 768 {
-            randomXVelocity = -Int.random(in: 3...5)
-        } else {
-            randomXVelocity = -Int.random(in: 8...15)
+        for (maxPosition, range) in enemyVelocityX {
+            if randomPosition.x < maxPosition {
+                randomXVelocity = Int.random(in: range)
+                break
+            }
         }
         
-        let randomYVelocity = Int.random(in: 24...32)
+        let randomYVelocity = Int.random(in: randomYVelocityRange)
         
         enemy.physicsBody = SKPhysicsBody(circleOfRadius: 64)
-        enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity * 40, dy: randomYVelocity * 40)
+        //project 23 challenge 2
+        let multiplier = enemyType == 7 ? fastEnemyVelocityMultiplier : enemyVelocityMultiplier
+        enemy.physicsBody?.velocity = CGVector(dx: randomXVelocity * multiplier, dy: randomYVelocity * multiplier)
         enemy.physicsBody?.angularVelocity = randomAngularVelocity
         enemy.physicsBody?.collisionBitMask = 0
         
         addChild(enemy)
-        activateEnemies.append(enemy)
+        activeEnemies.append(enemy)
     }
     
     private func tossEnemies() {
@@ -380,10 +424,12 @@ class GameScene: SKScene {
     
     private func endGame(triggeredByBomb: Bool) {
         guard  isGameEnded == false else { return }
-        
-        isPaused = true
-        physicsWorld.speed = 0
-        isUserInteractionEnabled = false
+        //project 23 challenge 3
+        isGameEnded = true
+        //        isPaused = true
+        //        physicsWorld.speed = 0
+        //      isUserInteractionEnabled = false
+        nextSequenceQueued = true
         
         bombSoundEffect?.stop()
         bombSoundEffect = nil
@@ -393,6 +439,24 @@ class GameScene: SKScene {
             livesImages[1].texture = SKTexture(imageNamed: Images.Extension.sliceLifeGone)
             livesImages[2].texture = SKTexture(imageNamed: Images.Extension.sliceLifeGone)
         }
+        //project 23 challenge 3
+        addChild(gameOverLabel)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.cleanup()
+        }
+    }
+    
+    private func cleanup() {
+        if activeEnemies.count > 0 {
+            for (index, node) in activeEnemies.enumerated().reversed() {
+                node.removeAllActions()
+                node.removeFromParent()
+                activeEnemies.remove(at: index)
+            }
+        }
+        bombSoundEffect?.stop()
+        bombSoundEffect = nil
     }
     
     private func subtractLife() {

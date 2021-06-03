@@ -12,6 +12,7 @@ enum Images {
     static let lifeImage = "sliceLife"
     static let bombImage = "sliceBomb"
     static let penguinImage = "penguin"
+    static let fastPenguinImage = "fastpenguin"
     
     enum Font {
         static let fontChalkduster = "Chalkduster"
@@ -25,6 +26,7 @@ enum Images {
     }
     
     enum Extension {
+        static let fastEnemyName = "fastenemy"
         static let enemyName = "enemy"
         static let bombContainerName = "bombContainer"
         static let bombName = "bomb"
