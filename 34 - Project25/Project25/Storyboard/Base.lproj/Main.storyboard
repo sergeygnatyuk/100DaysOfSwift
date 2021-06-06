@@ -32,13 +32,17 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1000" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2pE-af-OMV">
                                             <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="145" id="bke-4m-rdA"/>
+                                                <constraint firstAttribute="height" constant="145" id="dcj-gC-AMi"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2pE-af-OMV" firstAttribute="centerY" secondItem="039-Yd-h3D" secondAttribute="centerY" id="G7V-8h-ThX"/>
-                                        <constraint firstItem="2pE-af-OMV" firstAttribute="centerX" secondItem="039-Yd-h3D" secondAttribute="centerX" id="p1D-dK-qIg"/>
-                                        <constraint firstItem="2pE-af-OMV" firstAttribute="top" secondItem="039-Yd-h3D" secondAttribute="top" id="qd7-ti-coW"/>
-                                        <constraint firstItem="2pE-af-OMV" firstAttribute="leading" secondItem="039-Yd-h3D" secondAttribute="leading" id="x64-uO-xBJ"/>
+                                        <constraint firstItem="2pE-af-OMV" firstAttribute="top" secondItem="039-Yd-h3D" secondAttribute="top" id="6jH-EF-slV"/>
+                                        <constraint firstItem="2pE-af-OMV" firstAttribute="centerX" secondItem="039-Yd-h3D" secondAttribute="centerX" id="Cmk-k4-Xc7"/>
+                                        <constraint firstItem="2pE-af-OMV" firstAttribute="centerY" secondItem="039-Yd-h3D" secondAttribute="centerY" id="Pll-H1-CgD"/>
+                                        <constraint firstItem="2pE-af-OMV" firstAttribute="leading" secondItem="039-Yd-h3D" secondAttribute="leading" id="YGh-D4-XRo"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                             </collectionViewCell>

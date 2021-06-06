@@ -15,6 +15,8 @@
 		4AC31DC1266CAEE8003F1B82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC31DBF266CAEE8003F1B82 /* LaunchScreen.storyboard */; };
 		4AC31DD2266CB40C003F1B82 /* ViewController+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC31DD1266CB40C003F1B82 /* ViewController+UINavigationControllerDelegate.swift */; };
 		4AC31DD5266CB602003F1B82 /* ViewController+UIImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC31DD4266CB602003F1B82 /* ViewController+UIImagePickerControllerDelegate.swift */; };
+		4AC31DDC266D358C003F1B82 /* ViewController+MCBrowserViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC31DDB266D358C003F1B82 /* ViewController+MCBrowserViewControllerDelegate.swift */; };
+		4AC31DDF266D3624003F1B82 /* ViewController+MCSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC31DDE266D3624003F1B82 /* ViewController+MCSessionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4AC31DC2266CAEE8003F1B82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC31DD1266CB40C003F1B82 /* ViewController+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		4AC31DD4266CB602003F1B82 /* ViewController+UIImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UIImagePickerControllerDelegate.swift"; sourceTree = "<group>"; };
+		4AC31DDB266D358C003F1B82 /* ViewController+MCBrowserViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+MCBrowserViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		4AC31DDE266D3624003F1B82 /* ViewController+MCSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+MCSessionDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				4AC31DB8266CAEE5003F1B82 /* ViewController.swift */,
 				4AC31DD1266CB40C003F1B82 /* ViewController+UINavigationControllerDelegate.swift */,
 				4AC31DD4266CB602003F1B82 /* ViewController+UIImagePickerControllerDelegate.swift */,
+				4AC31DDB266D358C003F1B82 /* ViewController+MCBrowserViewControllerDelegate.swift */,
+				4AC31DDE266D3624003F1B82 /* ViewController+MCSessionDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,7 +184,9 @@
 				4AC31DB9266CAEE5003F1B82 /* ViewController.swift in Sources */,
 				4AC31DD5266CB602003F1B82 /* ViewController+UIImagePickerControllerDelegate.swift in Sources */,
 				4AC31DD2266CB40C003F1B82 /* ViewController+UINavigationControllerDelegate.swift in Sources */,
+				4AC31DDF266D3624003F1B82 /* ViewController+MCSessionDelegate.swift in Sources */,
 				4AC31DB5266CAEE5003F1B82 /* AppDelegate.swift in Sources */,
+				4AC31DDC266D358C003F1B82 /* ViewController+MCBrowserViewControllerDelegate.swift in Sources */,
 				4AC31DB7266CAEE5003F1B82 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
