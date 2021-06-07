@@ -147,3 +147,10 @@ Project 22 - Detect-a-Beacon.
 Project 23 - Swifty Ninja.
 
 ![Simulator Screen Shot - iPad (8th generation) - 2021-06-03 at 23 00 58](https://user-images.githubusercontent.com/76879483/120705619-b981f980-c4c0-11eb-9718-ce56c8ef2fa7.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-06-03 at 23 00 48](https://user-images.githubusercontent.com/76879483/120705620-bab32680-c4c0-11eb-96e3-472823a384f9.png)
+
+
+Project 25 - Selfie Share.
+
+![Simulator Screen Shot - iPhone 12 - 2021-06-08 at 01 19 04](https://user-images.githubusercontent.com/76879483/121094860-f0754980-c7f7-11eb-8eeb-cac3f97d0bb6.png) ![Simulator Screen Shot - iPhone 12 - 2021-06-08 at 01 20 14](https://user-images.githubusercontent.com/76879483/121094861-f10de000-c7f7-11eb-8945-daa3b6705cb7.png)
+
+
