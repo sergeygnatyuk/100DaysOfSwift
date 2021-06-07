@@ -16,6 +16,8 @@ extension ViewController: MCSessionDelegate {
         case .connecting:
             print("Connecting \(peerID.displayName)")
         case .notConnected:
+            // project25 challenge 1
+            showAlertDisconnected(displayName: peerID.displayName)
             print("Not Connected \(peerID.displayName)")
         @unknown default:
             print("Unknown state received \(peerID.displayName)")

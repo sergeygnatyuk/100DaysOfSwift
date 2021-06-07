@@ -23,8 +23,12 @@ final class ViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = titleNavigationController
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
+        let connectingButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
+        let connectPeers = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showConnectPeersAlert))
+        navigationItem.leftBarButtonItems = [connectingButton, connectPeers]
+        let importPictureButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
+        let sendMessageButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(showSendMessageAlert))
+        navigationItem.rightBarButtonItems = [importPictureButton, sendMessageButton]
         mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
         mcSession?.delegate = self
     }
@@ -50,6 +54,32 @@ final class ViewController: UICollectionViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alertController, animated: true)
     }
+    // project25 challenge 1
+    @objc func showSendMessageAlert() {
+        let alertController = UIAlertController(title: "Massege", message: nil, preferredStyle: .alert)
+        alertController.addTextField()
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Send", style: .default, handler: { [weak self, weak alertController] _ in
+            if let text = alertController?.textFields?[0].text {
+                self?.sendMessage(text)
+            }
+        }))
+        present(alertController, animated: true)
+    }
+    // project25 challenge 3
+    @objc func showConnectPeersAlert() {
+        guard let connectedPeers = mcSession?.connectedPeers else { return }
+        var message = ""
+        if connectedPeers.isEmpty {
+            message = "Currently there are no peers connected"
+        }
+        let alertController = UIAlertController(title: "Names of all devices", message: message, preferredStyle: .alert)
+        for peerID in connectedPeers {
+            alertController.addAction(UIAlertAction(title: "\(peerID)", style: .default))
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
+    }
     
     // MARK: - Private
     private func startHosting(action: UIAlertAction) {
@@ -64,5 +94,31 @@ final class ViewController: UICollectionViewController {
         mcBrowser.delegate = self
         present(mcBrowser, animated: true)
     }
+    // project25 challenge 2
+    private func sendMessage(_ text: String) {
+        let data = Data(text.utf8)
+        sendData(data)
+    }
+    // project25 challenge 2
+    private func sendData(_ data: Data) {
+        guard let mcSession = mcSession else { return }
+        if mcSession.connectedPeers.count > 0 {
+            do {
+                try mcSession.send(data, toPeers: mcSession.connectedPeers, with: .reliable)
+            } catch {
+                let alertController = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                present(alertController, animated: true)
+        }
+    }
+}
+
+// MARK: - Public
+// project25 challenge 1
+public func showAlertDisconnected(displayName: String) {
+    let alertController = UIAlertController(title: "ALERT", message: "\(peerID.displayName) disconnected", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+    present(alertController, animated: true)
+}
 }
 
