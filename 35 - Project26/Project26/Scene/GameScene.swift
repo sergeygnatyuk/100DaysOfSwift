@@ -15,6 +15,8 @@ final class GameScene: SKScene {
     var lastTouchPosition: CGPoint?
     var motionManager: CMMotionManager?
     var scoreLabel: SKLabelNode!
+    var gameOverLabel: SKLabelNode!
+    var transportPoints = [SKSpriteNode]()
     var fontStyle = "Chalkduster"
     var isGameOver = false
     var score = 0 {
@@ -30,6 +32,15 @@ final class GameScene: SKScene {
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
+        // project 26 challenge 2
+        gameOverLabel = SKLabelNode(fontNamed: fontStyle)
+        gameOverLabel.fontSize = 70
+        gameOverLabel.text = "YOU WINNER"
+        gameOverLabel.horizontalAlignmentMode = .center
+        gameOverLabel.position = CGPoint(x: 500, y: 400)
+        gameOverLabel.zPosition = 1
+        gameOverLabel.isHidden = true
+        addChild(gameOverLabel)
         scoreLabel = SKLabelNode(fontNamed: fontStyle)
         scoreLabel.text = "Score: 0"
         scoreLabel.horizontalAlignmentMode = .left
@@ -52,6 +63,7 @@ final class GameScene: SKScene {
         guard let levelString = try? String(contentsOf: levelURL) else {
             fatalError("Could not load level1.txt from the app bundle")
         }
+        // project 26 challenge 1
         let lines = levelString.components(separatedBy: FileNameModel.separator)
         for (row, line) in lines.reversed().enumerated() {
             for (column, letter) in line.enumerated() {
@@ -64,6 +76,8 @@ final class GameScene: SKScene {
                     createStarNode(position)
                 } else if letter == "f" {
                     createFinishNode(position)
+                } else if letter == "t" {
+                    createTransportNode(position)
                 } else if letter == " " {
                     
                 } else {
@@ -119,6 +133,20 @@ final class GameScene: SKScene {
         addChild(node)
     }
     
+    private func createTransportNode(_ position: CGPoint) {
+        let node = SKSpriteNode(imageNamed: FileNameModel.transport)
+        node.position = position
+        node.name = FileNameModel.transport
+        node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
+        node.physicsBody?.categoryBitMask = CollisionTypes.transport.rawValue
+        node.physicsBody?.contactTestBitMask = CollisionTypes.player.rawValue
+        node.physicsBody?.isDynamic = false
+        node.physicsBody?.collisionBitMask = 0
+        transportPoints.append(node)
+        
+        addChild(node)
+    }
+    
     private func createPlayer() {
         player = SKSpriteNode(imageNamed: FileNameModel.player)
         player.position = CGPoint(x: 96, y: 672)
@@ -127,7 +155,7 @@ final class GameScene: SKScene {
         player.physicsBody?.allowsRotation = false
         player.physicsBody?.linearDamping = 0.5
         player.physicsBody?.categoryBitMask = CollisionTypes.player.rawValue
-        player.physicsBody?.contactTestBitMask = CollisionTypes.star.rawValue | CollisionTypes.vortex.rawValue | CollisionTypes.finish.rawValue
+        player.physicsBody?.contactTestBitMask = CollisionTypes.star.rawValue | CollisionTypes.vortex.rawValue | CollisionTypes.finish.rawValue | CollisionTypes.transport.rawValue
         player.physicsBody?.collisionBitMask = CollisionTypes.wall.rawValue
         addChild(player)
     }
@@ -186,11 +214,27 @@ final class GameScene: SKScene {
                 self?.createPlayer()
                 self?.isGameOver = false
             }
+        } else if node.name == "transport" {
+            let filteredArray = transportPoints.filter{ $0 !== node }
+            guard let anotherTransportPoint = filteredArray.randomElement() else {
+                assert(false, "Can not find anotherTransportPoint")
+            }
+            player.physicsBody?.isDynamic = false
+            player.run(SKAction.scale(to: 0.0001, duration: 0.5)) { [weak anotherTransportPoint, weak self] in
+                let transportPoint = CGPoint(x: anotherTransportPoint?.position.x ?? 96, y: (anotherTransportPoint?.position.y ?? 96) - 64)
+                self?.player.position = transportPoint
+                self?.player.run(SKAction.scale(to: 1, duration: 0.5))
+                self?.player.physicsBody?.isDynamic = true
+            }
         } else if node.name == FileNameModel.star {
             node.removeFromParent()
             score += 1
         } else if node.name == FileNameModel.finish {
-            
+            // project 26 challenge 1
+            isGameOver = true
+            node.removeFromParent()
+            player.physicsBody?.isDynamic = true
+            gameOverLabel.isHidden = false
         }
     }
 }

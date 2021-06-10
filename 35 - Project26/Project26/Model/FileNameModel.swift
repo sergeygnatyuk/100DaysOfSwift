@@ -17,6 +17,7 @@ enum FileNameModel {
     static let finish = "finish"
     static let background = "background.jpg"
     static let player = "player"
+    static let transport = "transport"
 }
 
 enum Char: Character {
