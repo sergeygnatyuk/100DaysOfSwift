@@ -16,6 +16,7 @@ enum FileNameModel {
     static let star = "star"
     static let finish = "finish"
     static let background = "background.jpg"
+    static let player = "player"
 }
 
 enum Char: Character {
