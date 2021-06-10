@@ -16,6 +16,7 @@
 		4A2D2E59266FEEBA000678DF /* level1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A2D2E58266FEEBA000678DF /* level1.txt */; };
 		4A2D2E66266FF5E3000678DF /* FileNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D2E65266FF5E3000678DF /* FileNameModel.swift */; };
 		4A2D2E6F267014D1000678DF /* CollisionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D2E6E267014D1000678DF /* CollisionTypes.swift */; };
+		4A8EB7E326726C8500A45D51 /* GameScene+SKPhysicsContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EB7E226726C8500A45D51 /* GameScene+SKPhysicsContactDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4A2D2E58266FEEBA000678DF /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 		4A2D2E65266FF5E3000678DF /* FileNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNameModel.swift; sourceTree = "<group>"; };
 		4A2D2E6E267014D1000678DF /* CollisionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionTypes.swift; sourceTree = "<group>"; };
+		4A8EB7E226726C8500A45D51 /* GameScene+SKPhysicsContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+SKPhysicsContactDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				4A2D2E42266FEDE9000678DF /* GameScene.sks */,
 				4A2D2E46266FEDE9000678DF /* GameScene.swift */,
+				4A8EB7E226726C8500A45D51 /* GameScene+SKPhysicsContactDelegate.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8EB7E326726C8500A45D51 /* GameScene+SKPhysicsContactDelegate.swift in Sources */,
 				4A2D2E66266FF5E3000678DF /* FileNameModel.swift in Sources */,
 				4A2D2E47266FEDE9000678DF /* GameScene.swift in Sources */,
 				4A2D2E49266FEDE9000678DF /* GameViewController.swift in Sources */,
