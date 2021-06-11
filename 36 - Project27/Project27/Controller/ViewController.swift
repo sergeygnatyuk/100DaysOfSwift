@@ -19,15 +19,13 @@ final class ViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         drawRectangle()
     }
     
     // MARK: - Actions
     @IBAction func redrawTapped(_ sender: UIButton) {
         currentDrawType += 1
-        if currentDrawType > 5 {
+        if currentDrawType > 6 {
             currentDrawType = 0
         }
         switch currentDrawType {
@@ -43,6 +41,8 @@ final class ViewController: UIViewController {
             drawLines()
         case 5:
             drawImagesAndText()
+        case 6:
+            drawEmoji()
         default:
             break
         }
@@ -67,7 +67,7 @@ final class ViewController: UIViewController {
         let image = renderer.image { ctx in
             let rectangle = CGRect(x: 0, y: 0, width: 512, height: 512).insetBy(dx: 5, dy: 5)
             ctx.cgContext.setFillColor(UIColor.red.cgColor)
-            ctx.cgContext.setStrokeColor(UIColor.white.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
             ctx.cgContext.setLineWidth(10)
             ctx.cgContext.addEllipse(in: rectangle)
             ctx.cgContext.drawPath(using: .fillStroke)
@@ -78,7 +78,7 @@ final class ViewController: UIViewController {
     private func drawCheckerboard() {
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
         let image = renderer.image { ctx in
-            ctx.cgContext.setFillColor(UIColor.white.cgColor)
+            ctx.cgContext.setFillColor(UIColor.black.cgColor)
             for row in 0..<8 {
                 for col in 0..<8 {
                     if (row + col).isMultiple(of: 2) {
@@ -100,7 +100,7 @@ final class ViewController: UIViewController {
                 ctx.cgContext.rotate(by: CGFloat(amount))
                 ctx.cgContext.addRect(CGRect(x: -128, y: -128, width: 256, height: 256))
             }
-            ctx.cgContext.setStrokeColor(UIColor.white.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
             ctx.cgContext.strokePath()
         }
         imageView.image = image
@@ -122,7 +122,7 @@ final class ViewController: UIViewController {
                 }
                 length *= 0.99
             }
-            ctx.cgContext.setStrokeColor(UIColor.white.cgColor)
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
             ctx.cgContext.strokePath()
         }
         imageView.image = image
@@ -142,5 +142,48 @@ final class ViewController: UIViewController {
         }
         imageView.image = image
     }
+    // project 27 challenge 1
+    private func drawEmoji() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        
+            let image = renderer.image { ctx in
+                let faceRectangle = CGRect(x: 128, y: 128, width: 256, height: 256)
+                
+                // draw face
+                ctx.cgContext.setFillColor(UIColor.yellow.cgColor)
+                ctx.cgContext.setStrokeColor(UIColor.green.cgColor)
+                ctx.cgContext.setLineWidth(10)
+                
+                ctx.cgContext.addEllipse(in: faceRectangle)
+                ctx.cgContext.drawPath(using: .fillStroke)
+                
+                //draw eyes white
+                let leftWhiteRectangle = CGRect(x: 160, y: 200, width: 64, height: 64)
+                let rightWhiteRectangle = CGRect(x: 288, y: 200, width: 64, height: 64)
+                
+                ctx.cgContext.setFillColor(UIColor.white.cgColor)
+                ctx.cgContext.setStrokeColor(UIColor.gray.cgColor)
+                ctx.cgContext.setLineWidth(6)
+                
+                ctx.cgContext.addEllipse(in: leftWhiteRectangle)
+                ctx.cgContext.drawPath(using: .fillStroke)
+                
+                ctx.cgContext.addEllipse(in: rightWhiteRectangle)
+                ctx.cgContext.drawPath(using: .fillStroke)
+                
+                //draw eyes black
+                let leftBlackRactangle = CGRect(x: 184, y: 220, width: 16, height: 16)
+                let rightBlackRactangle = CGRect(x: 314, y: 220, width: 16, height: 16)
+                ctx.cgContext.setFillColor(UIColor.black.cgColor)
+                ctx.cgContext.fillEllipse(in: leftBlackRactangle)
+                ctx.cgContext.fillEllipse(in: rightBlackRactangle)
+                
+                //draw mouse
+                ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+                ctx.cgContext.stroke(CGRect(x: 224, y: 315, width: 64, height: 10))
+            }
+
+            imageView.image = image
+        }
 }
 
