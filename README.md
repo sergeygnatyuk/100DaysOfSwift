@@ -158,3 +158,7 @@ Project 25 - Marble Maze.
 
 ![Simulator Screen Shot - iPad (8th generation) - 2021-06-10 at 22 35 16](https://user-images.githubusercontent.com/76879483/121587643-b5fcee00-ca3d-11eb-9b9f-dfe917c1c505.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-06-10 at 22 35 10](https://user-images.githubusercontent.com/76879483/121587656-b85f4800-ca3d-11eb-8e98-48dfc78686f0.png)
 
+
+Project 26 - Core Graphics.
+
+![Simulator Screen Shot - iPad (8th generation) - 2021-06-12 at 21 05 31](https://user-images.githubusercontent.com/76879483/121786039-220a5e00-cbc6-11eb-9344-d6a2813402a7.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-06-12 at 21 05 35](https://user-images.githubusercontent.com/76879483/121786042-233b8b00-cbc6-11eb-8242-03be23054013.png)
