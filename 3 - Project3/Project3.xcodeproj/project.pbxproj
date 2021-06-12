@@ -78,9 +78,9 @@
 		4A3A2B032611E1D200C0FF0B /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
-				4A6B7B802612E7A30018F43F /* Model */,
-				4A6B7B7F2612E78D0018F43F /* View */,
-				4A6B7B7E2612E7700018F43F /* Controller */,
+				4A6B7B7F2612E78D0018F43F /* Storyboards */,
+				4A6B7B7E2612E7700018F43F /* Controllers */,
+				4AE819A626752F2400064866 /* Resources */,
 				4AAD17FE2619B04A00AE1241 /* Supporting Files */,
 			);
 			path = Project1;
@@ -103,29 +103,22 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
-		4A6B7B7E2612E7700018F43F /* Controller */ = {
+		4A6B7B7E2612E7700018F43F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				4A3A2B082611E1D200C0FF0B /* ViewController.swift */,
 				4A6B7B7B2612E7540018F43F /* DetailViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		4A6B7B7F2612E78D0018F43F /* View */ = {
+		4A6B7B7F2612E78D0018F43F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				4A3A2B0A2611E1D200C0FF0B /* Main.storyboard */,
 				4A3A2B0F2611E1D300C0FF0B /* LaunchScreen.storyboard */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4A6B7B802612E7A30018F43F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		4AAD17FE2619B04A00AE1241 /* Supporting Files */ = {
@@ -133,11 +126,18 @@
 			children = (
 				4A3A2B042611E1D200C0FF0B /* AppDelegate.swift */,
 				4A3A2B062611E1D200C0FF0B /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AE819A626752F2400064866 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				4A3A2B0D2611E1D300C0FF0B /* Assets.xcassets */,
 				4A3A2B122611E1D300C0FF0B /* Info.plist */,
 				4A3A2B192611E6AA00C0FF0B /* Content */,
 			);
-			path = "Supporting Files";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,7 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = "Project1/Supporting Files/Info.plist";
+				INFOPLIST_FILE = Project1/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = "Project1/Supporting Files/Info.plist";
+				INFOPLIST_FILE = Project1/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

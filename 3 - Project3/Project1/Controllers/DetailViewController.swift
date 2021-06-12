@@ -7,29 +7,31 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
+    // UI
     @IBOutlet weak var imageView: UIImageView!
-    var selectedImage: String?
     
+    // Properties
+    var selectedImage: String?
     //Homework
     var selectedPictureNumber = 0
     var totalPictures = 0
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Pictures \(selectedPictureNumber) of \(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
-        
         //add icon action in navigationBar
- navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                            target: self, action: #selector(shareTaped))
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self,
+                                                            action: #selector(shareTaped))
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = true
@@ -40,6 +42,7 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
+    // MARK: - @objc methods
     //method share image
     @objc func shareTaped() {
         guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
