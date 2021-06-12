@@ -25,7 +25,7 @@ final class ViewController: UIViewController {
     // MARK: - Actions
     @IBAction func redrawTapped(_ sender: UIButton) {
         currentDrawType += 1
-        if currentDrawType > 6 {
+        if currentDrawType > 7 {
             currentDrawType = 0
         }
         switch currentDrawType {
@@ -43,6 +43,8 @@ final class ViewController: UIViewController {
             drawImagesAndText()
         case 6:
             drawEmoji()
+        case 7:
+            drawTwin()
         default:
             break
         }
@@ -185,5 +187,44 @@ final class ViewController: UIViewController {
 
             imageView.image = image
         }
+    
+    func drawTwin() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        let img = renderer.image { ctx in
+            ctx.cgContext.setStrokeColor(UIColor.black.cgColor)
+            ctx.cgContext.setLineWidth(5)
+            
+            //T
+            ctx.cgContext.move(to: CGPoint(x: 14, y: 192))
+            ctx.cgContext.addLine(to: CGPoint(x: 114, y: 192))
+            ctx.cgContext.move(to: CGPoint(x: 64, y: 192))
+            ctx.cgContext.addLine(to: CGPoint(x: 64, y: 320))
+            
+            //W
+            ctx.cgContext.move(to: CGPoint(x: 132, y: 192))
+            ctx.cgContext.addLine(to: CGPoint(x: 162, y: 320))
+            ctx.cgContext.addLine(to: CGPoint(x: 192, y: 195))
+            ctx.cgContext.addLine(to: CGPoint(x: 222, y: 320))
+            ctx.cgContext.addLine(to: CGPoint(x: 252, y: 192))
+            
+            //I
+            ctx.cgContext.move(to: CGPoint(x: 288, y: 192))
+            ctx.cgContext.addLine(to: CGPoint(x: 352, y: 192))
+            ctx.cgContext.move(to: CGPoint(x: 320, y: 192))
+            ctx.cgContext.addLine(to: CGPoint(x: 320, y: 320))
+            ctx.cgContext.move(to: CGPoint(x: 288, y: 320))
+            ctx.cgContext.addLine(to: CGPoint(x: 352, y: 320))
+            
+            //N
+            ctx.cgContext.move(to: CGPoint(x: 396, y: 320))
+            ctx.cgContext.addLine(to: CGPoint(x: 396, y: 192))
+            ctx.cgContext.addLine(to: CGPoint(x: 498, y: 320))
+            ctx.cgContext.addLine(to: CGPoint(x: 498, y: 192))
+            
+            //draw
+            ctx.cgContext.strokePath()
+        }
+        imageView.image = img
+    }
 }
 
