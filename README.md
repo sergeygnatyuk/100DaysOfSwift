@@ -162,3 +162,8 @@ Project 25 - Marble Maze.
 Project 26 - Core Graphics.
 
 ![Simulator Screen Shot - iPad (8th generation) - 2021-06-12 at 21 05 31](https://user-images.githubusercontent.com/76879483/121786039-220a5e00-cbc6-11eb-9344-d6a2813402a7.png) ![Simulator Screen Shot - iPad (8th generation) - 2021-06-12 at 21 05 35](https://user-images.githubusercontent.com/76879483/121786042-233b8b00-cbc6-11eb-8242-03be23054013.png)
+
+
+Projects 25-27 Milestone - Meme Maker.
+
+![Simulator Screen Shot - iPhone 12 - 2021-06-14 at 21 29 00](https://user-images.githubusercontent.com/76879483/121942073-bf959700-cd58-11eb-8ca0-b607c4284d41.png) ![Simulator Screen Shot - iPhone 12 - 2021-06-14 at 21 27 45](https://user-images.githubusercontent.com/76879483/121942076-c02e2d80-cd58-11eb-9819-fabf93e71456.png)
