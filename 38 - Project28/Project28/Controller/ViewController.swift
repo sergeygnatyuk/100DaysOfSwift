@@ -12,12 +12,16 @@ final class ViewController: UIViewController {
     
     // UI
     @IBOutlet var secret: UITextView!
+    // project 28 challenge 1
+    var done: UIBarButtonItem?
     
     // Properties
     let titleVC = "Nothing to see here"
     let modifiedTitleVC = "Secret stuff!"
     let reasonIdentify = "Identify yourself!"
-    let keyMessage = "SecretMessage"
+    let SecretMessageIdentify = "SecretMessage"
+    // project 28 challenge 2
+    let passwordKey = "NewPassword"
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -27,6 +31,8 @@ final class ViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(saveSecretMessage), name: UIApplication.willResignActiveNotification, object: nil)
+        // project 28 challenge 1
+        done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(saveSecretMessage))
     }
     
     // MARK: - @objc methods
@@ -46,17 +52,49 @@ final class ViewController: UIViewController {
     
     @objc private func saveSecretMessage() {
         guard secret.isHidden == false else { return }
-        KeychainWrapper.standard.set(secret.text, forKey: keyMessage)
+        KeychainWrapper.standard.set(secret.text, forKey: SecretMessageIdentify)
         secret.resignFirstResponder()
         secret.isHidden = true
         title = titleVC
+        // project 28 challenge 1
+        navigationItem.rightBarButtonItem = nil
     }
     
     // MARK: - Private
     private func unlockSecretMessage() {
         secret.isHidden = false
         title = modifiedTitleVC
-        secret.text = KeychainWrapper.standard.string(forKey: keyMessage) ?? ""
+        secret.text = KeychainWrapper.standard.string(forKey: SecretMessageIdentify) ?? ""
+        // project 28 challenge 1
+        navigationItem.rightBarButtonItem = done
+        
+    }
+    // project 28 challenge 2
+    private func enterByPassword(_ alertAction: UIAlertAction) {
+        if let password = KeychainWrapper.standard.string(forKey: passwordKey) {
+            let alertController = UIAlertController(title: "Enter password", message: nil, preferredStyle: .alert)
+            alertController.addTextField()
+            alertController.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alertController, weak self] _ in
+                if alertController?.textFields?[0].text == password {
+                    self?.unlockSecretMessage()
+                }
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(alertController, animated: true)
+        } else {
+            let alertController = UIAlertController(title: "Enter new password", message: nil, preferredStyle: .alert)
+            alertController.addTextField()
+            alertController.addAction(UIAlertAction(title: "Submit", style: .default, handler: { [weak alertController] _ in
+                if let password = alertController?.textFields?[0].text {
+                    KeychainWrapper.standard.set(password, forKey: self.passwordKey)
+                }
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(alertController, animated: true)
+        }
+        if true {
+            KeychainWrapper.standard.set("password", forKey: passwordKey)
+        }
     }
     
     // MARK: - Actions
@@ -70,16 +108,19 @@ final class ViewController: UIViewController {
                     if success {
                         self?.unlockSecretMessage()
                     } else {
-                        let alertController = UIAlertController(title: "Authentication failed", message: "You could not be verified; please try again", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                        // project 28 challenge 2
+                        let alertController = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Use password", style: .default, handler: self?.enterByPassword))
+                        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                         self?.present(alertController, animated: true)
                     }
                 }
             }
         } else {
-            let alertController = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alertController, animated: true)
+//            let alertController = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication", preferredStyle: .alert)
+//            alertController.addAction(UIAlertAction(title: "Use password", style: .default, handler: enterByPassword))
+//            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//            present(alertController, animated: true)
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UITableViewController {
     var petitions = [Petition]()
     var filteredPetitions = [Petition]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,10 +89,10 @@ class ViewController: UITableViewController {
     
     //homework func call alert
     @objc func addCredits() {
-    let ac = UIAlertController.init(title: "Attention", message: "Data comes from the We The People API of the Whitehouse.", preferredStyle: .alert)
+        let ac = UIAlertController.init(title: "Attention", message: "Data comes from the We The People API of the Whitehouse.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         present(ac, animated: true, completion: nil)
-
+        
     }
     
     @objc func filterTapped() {
@@ -110,12 +110,12 @@ class ViewController: UITableViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             self.filteredPetitions.removeAll(keepingCapacity: true)
             for petition in self.petitions {
-            if petition.title.contains(searchString) || petition.body.contains(searchString) {
-                self.filteredPetitions.append(petition)
-                self.tableView.reloadData()
+                if petition.title.contains(searchString) || petition.body.contains(searchString) {
+                    self.filteredPetitions.append(petition)
+                    self.tableView.reloadData()
+                }
             }
         }
     }
-}
-
+    
 }
