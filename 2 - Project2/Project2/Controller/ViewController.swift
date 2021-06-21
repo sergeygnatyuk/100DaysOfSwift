@@ -118,8 +118,7 @@ final class ViewController: UIViewController {
             title = "Correct"
             score += 1
             message = "Score: \(score)"
-        }
-        else {
+        } else {
             title = "Wrong"
             score -= 1
             // challenge 3

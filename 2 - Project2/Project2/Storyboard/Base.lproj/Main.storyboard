@@ -69,6 +69,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="HCK-iE-neb"/>
                     <connections>
+                        <outlet property="as" destination="YFF-PV-rZn" id="jac-Zt-Ju3"/>
                         <outlet property="button1" destination="YFF-PV-rZn" id="FWT-04-95D"/>
                         <outlet property="button2" destination="5ls-xg-jzM" id="Ylv-Yy-ztg"/>
                         <outlet property="button3" destination="IVC-rU-GrB" id="S6C-ld-VoV"/>
