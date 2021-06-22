@@ -172,3 +172,8 @@ Projects 25-27 Milestone - Meme Maker.
 Project 28 - Secret Swift.
 
 ![Simulator Screen Shot - iPhone 12 - 2021-06-17 at 02 24 36](https://user-images.githubusercontent.com/76879483/122478093-7439ed80-cfd1-11eb-8696-bd2b389781af.png) ![Simulator Screen Shot - iPhone 12 - 2021-06-17 at 02 25 28](https://user-images.githubusercontent.com/76879483/122478095-74d28400-cfd1-11eb-88ca-97a4092cc9ec.png)
+
+
+Project 29 - Exploding Monkeys.
+
+![Simulator Screen Shot - iPad Pro (9 7-inch) - 2021-06-22 at 21 23 52](https://user-images.githubusercontent.com/76879483/122979921-c5b2f580-d3a0-11eb-9d21-543e3d493202.png) ![Simulator Screen Shot - iPad Pro (9 7-inch) - 2021-06-22 at 21 23 39](https://user-images.githubusercontent.com/76879483/122979926-c6e42280-d3a0-11eb-899d-8f57cc317ad1.png)
