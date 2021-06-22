@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A13B8A726810B5D0093FA8D /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A13B8A626810B5D0093FA8D /* CGFloat.swift */; };
 		4A9E3361267E3BD300D4A76F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E3360267E3BD300D4A76F /* AppDelegate.swift */; };
 		4A9E3363267E3BD300D4A76F /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4A9E3362267E3BD300D4A76F /* GameScene.sks */; };
 		4A9E3367267E3BD300D4A76F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E3366267E3BD300D4A76F /* GameScene.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A13B8A4268109290093FA8D /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
+		4A13B8A626810B5D0093FA8D /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		4A9E335D267E3BD300D4A76F /* Project29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project29.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9E3360267E3BD300D4A76F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A9E3362267E3BD300D4A76F /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -53,9 +56,18 @@
 				4A9E336F267E3BD400D4A76F /* Info.plist */,
 				4A9E336D267E3BD400D4A76F /* Assets.xcassets */,
 				4AC5189C267F672D00358B19 /* hitBuilding.sks */,
+				4A13B8A4268109290093FA8D /* Snow.sks */,
 				4AC5189D267F672D00358B19 /* hitPlayer.sks */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4A13B8A526810B490093FA8D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4A13B8A626810B5D0093FA8D /* CGFloat.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		4A9E3354267E3BD300D4A76F = {
@@ -77,6 +89,7 @@
 		4A9E335F267E3BD300D4A76F /* Project29 */ = {
 			isa = PBXGroup;
 			children = (
+				4A13B8A526810B490093FA8D /* Extension */,
 				4A9E337A267E3D6600D4A76F /* Models */,
 				4A9E3360267E3BD300D4A76F /* AppDelegate.swift */,
 				4A9E3362267E3BD300D4A76F /* GameScene.sks */,
@@ -180,6 +193,7 @@
 			files = (
 				4A9E3367267E3BD300D4A76F /* GameScene.swift in Sources */,
 				4A9E337C267E3D8000D4A76F /* CollisionTypes.swift in Sources */,
+				4A13B8A726810B5D0093FA8D /* CGFloat.swift in Sources */,
 				4A9E3378267E3CE600D4A76F /* BuildingNode.swift in Sources */,
 				4A9E3369267E3BD300D4A76F /* GameViewController.swift in Sources */,
 				4AC518A2267F7A9C00358B19 /* GameScene+SKPhysicsContactDelegate.swift in Sources */,

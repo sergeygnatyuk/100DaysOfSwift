@@ -25,6 +25,24 @@ class GameScene: SKScene {
     let buildingName = "building"
     let hitPlayer = "hitPlayer"
     let hitBuilding = "hitBuilding"
+    // project 29 challenge 1
+    let chalkDuster = "Chalkduster"
+    let snowName = "Snow"
+    var player1Label: SKLabelNode!
+    var player2Label: SKLabelNode!
+    var scorePlayer1 = 0 {
+        didSet {
+            player1Label.text = "Score Player One: \(scorePlayer1)"
+        }
+    }
+    var scorePlayer2 = 0 {
+        didSet {
+            player2Label.text = "Score Player Two: \(scorePlayer2)"
+        }
+    }
+    // project 29 challenge 3
+    var snow: SKEmitterNode!
+   // public var windSpeedLabel: SKLabelNode!
     
     // MARK: - View
     override func didMove(to view: SKView) {
@@ -32,6 +50,11 @@ class GameScene: SKScene {
         createBuildings()
         createPlayers()
         physicsWorld.contactDelegate = self
+        // project 29 challenge 1
+        createPlayer1Label()
+        createPlayer2Label()
+        // project 29 challenge 3
+        createSnow()
     }
     
     // MARK: - Override methods
@@ -45,6 +68,33 @@ class GameScene: SKScene {
     }
     
     // MARK: - Private
+    // project 29 challenge 1
+    private func createPlayer1Label() {
+        player1Label = SKLabelNode(fontNamed: chalkDuster)
+        player1Label.text = "Score Player One: 0"
+        player1Label.position = CGPoint(x: 50, y: 680)
+        player1Label.horizontalAlignmentMode = .left
+        player1Label.fontSize = 20
+        addChild(player1Label)
+    }
+    
+    private func createPlayer2Label() {
+        player2Label = SKLabelNode(fontNamed: chalkDuster)
+        player2Label.text = "Score Player Two: 0"
+        player2Label.position = CGPoint(x: 950, y: 680)
+        player2Label.horizontalAlignmentMode = .right
+        player2Label.fontSize = 20
+        addChild(player2Label)
+    }
+    
+    private func createSnow() {
+        guard var snow1 = snow else { return }
+        snow1 = SKEmitterNode(fileNamed: snowName) ?? snow
+        snow1.position = CGPoint(x: 512, y: 800)
+        addChild(snow1)
+        snow.zPosition = -1
+    }
+    
     private func createBuildings() {
         var currentX: CGFloat = -15
         while currentX < 1024 {
@@ -103,8 +153,36 @@ class GameScene: SKScene {
     private func deg2rad(degrees: Int) -> Double {
         return Double(degrees) * .pi / 180
     }
+    // project 29 challenge 1
+    private func startNewGame() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let newGame = GameScene(size: self.size)
+            newGame.viewController = self.viewController
+            self.viewController?.currentGame = newGame
+            self.changePlayer()
+            newGame.currentPlayer = self.currentPlayer
+            let transition = SKTransition.crossFade(withDuration: 2.0)
+            self.view?.presentScene(newGame, transition: transition)
+        }
+    }
     
     // MARK: - Public
+//    // project 29 challenge 3
+//    public func createWindSpeedLabel() {
+//        windSpeedLabel = SKLabelNode(fontNamed: chalkDuster)
+//        windSpeedLabel.text = "SWind Speed: 0"
+//        windSpeedLabel.position = CGPoint(x: 425, y: 680)
+//        windSpeedLabel.horizontalAlignmentMode = .center
+//        windSpeedLabel.fontSize = 20
+//        addChild(windSpeedLabel)
+//    }
+    
+    public func setWindSpeed(_ speed: CGFloat) {
+        guard let snow = snow else { return }
+        physicsWorld.gravity = CGVector(dx: speed, dy: 9.8)
+        snow.xAcceleration = speed
+    }
+    
     public func launch(angle: Int, velocity: Int) {
         let speed = Double(velocity) / 10.0
         let radians = deg2rad(degrees: angle)
@@ -135,7 +213,7 @@ class GameScene: SKScene {
             banana.physicsBody?.applyImpulse(impulse)
         }
     }
-
+    
     public func bananaHit(building: SKNode, atPoint contactPoint: CGPoint) {
         guard let building = building as? BuildingNode else { return }
         let buildingLocation = convert(contactPoint, to: building)
@@ -144,9 +222,19 @@ class GameScene: SKScene {
             explosion.position = contactPoint
             addChild(explosion)
         }
+        // project 29 challenge 1
+        if currentPlayer == 1 {
+            scorePlayer1 += 1
+        } else {
+            scorePlayer2 += 1
+        }
         banana.name = ""
         banana.removeFromParent()
         banana = nil
+        // project 29 challenge 1
+        if scorePlayer1 == 3 || scorePlayer2 == 3 {
+            startNewGame()
+        }
         changePlayer()
     }
     
@@ -157,16 +245,8 @@ class GameScene: SKScene {
         }
         player.removeFromParent()
         banana.removeFromParent()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let newGame = GameScene(size: self.size)
-            newGame.viewController = self.viewController
-            self.viewController?.currentGame = newGame
-            self.changePlayer()
-            newGame.currentPlayer = self.currentPlayer
-            let transition = SKTransition.crossFade(withDuration: 2.0)
-            self.view?.presentScene(newGame, transition: transition)
-        }
+        // project 29 challenge 1
+        startNewGame()
     }
     
     public func changePlayer() {
