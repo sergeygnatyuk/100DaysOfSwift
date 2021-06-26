@@ -1,6 +1,10 @@
 # 100DaysOfSwift
 
-This is a course of 100 days with swift from Paul Hudson, it is very interesting and I plan to pass it to the end.
+Course of 100 days with swift from Paul Hudson. I graduated from it and am grateful for the motivation and interesting experience.
+
+![certificate](https://user-images.githubusercontent.com/76879483/123527224-45fd9180-d6e6-11eb-98d3-69f9a635b0ec.jpeg)
+
+
 
 Project 1 - Storm Viewer.
 
