@@ -21,7 +21,6 @@ class ViewController: UITableViewController {
     private let cellSpacingHeight: CGFloat = 7
     
     //MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //add icon action in navigationBar
@@ -31,12 +30,9 @@ class ViewController: UITableViewController {
         //project 12 task 1
         let userDefaults = UserDefaults.standard
         picturesViewCount = userDefaults.object(forKey: photosKey) as? [String: Int] ?? [String: Int]()
-        
         title = titleName
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         tableView.rowHeight = 60
-        
         //homework project 9 task 1
         performSelector(inBackground: #selector(backLoadImage), with: nil)
         tableView.reloadData()
@@ -49,7 +45,6 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
-        
         cell.textLabel?.text = pictures[indexPath.row]
         //project 12 task 1
         cell.detailTextLabel?.text = "Views: \(picturesViewCount[pictures[indexPath.row], default: 0])"
@@ -77,12 +72,9 @@ class ViewController: UITableViewController {
             viewController.selectedPictureNumber = indexPath.row + 1
             //project 12 task 1
             picturesViewCount[pictures[indexPath.row], default: 0] += 1
-            
             viewController.totalPictures = pictures.count
-            
             DispatchQueue.global().async { [weak self] in
                 self?.saveViewCount()
-
                 DispatchQueue.main.async {
                     self?.navigationController?.pushViewController(viewController, animated: true)
                     self?.tableView.reloadRows(at: [indexPath], with: .none)

@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet var imageView: UIImageView!
     var selectedImage: String?
     
@@ -51,7 +51,5 @@ class DetailViewController: UIViewController {
         viewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(viewController, animated: true)
     }
-
-
-    }
+}
 
