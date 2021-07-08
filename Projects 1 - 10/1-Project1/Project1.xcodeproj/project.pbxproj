@@ -64,6 +64,7 @@
 			children = (
 				4A3A2B192611E6AA00C0FF0B /* Content */,
 				4A3A2B0D2611E1D300C0FF0B /* Assets.xcassets */,
+				4A3A2B122611E1D300C0FF0B /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -135,7 +136,6 @@
 			children = (
 				4A3A2B042611E1D200C0FF0B /* AppDelegate.swift */,
 				4A3A2B062611E1D200C0FF0B /* SceneDelegate.swift */,
-				4A3A2B122611E1D300C0FF0B /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = "Project1/Supporting Files/Info.plist";
+				INFOPLIST_FILE = Project1/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,7 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N5DQ465SS7;
-				INFOPLIST_FILE = "Project1/Supporting Files/Info.plist";
+				INFOPLIST_FILE = Project1/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

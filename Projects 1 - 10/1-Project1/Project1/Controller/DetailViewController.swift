@@ -9,8 +9,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    //Properties
+    // MARK: - UI
     @IBOutlet weak var imageView: UIImageView!
+    
+    // MARK: - Properties
     public var selectedImage: String?
     //Homework
     public var selectedPictureNumber = 0

@@ -52,7 +52,7 @@ class ViewController: UITableViewController {
         cell.layer.borderColor = UIColor.cyan.cgColor
         cell.layer.borderWidth = 3.0
         cell.layer.cornerRadius = 15
-       // change font size in cells
+        // change font size in cells
         cell.textLabel?.font = UIFont.init(name: fontName, size: 15)
         return cell
     }
@@ -83,7 +83,7 @@ class ViewController: UITableViewController {
         }
     }
     
-   // Customization cell
+    // Customization cell
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
@@ -95,7 +95,6 @@ class ViewController: UITableViewController {
     }
     
     //MARK: - @objc methods
-    
     //method share link
     @objc private func menuButtonTapped() {
         var items: [Any] = ["This app is great, you should try it!"]
