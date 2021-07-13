@@ -8,7 +8,13 @@ Course of 100 days with swift from Paul Hudson. I graduated from it and am grate
 
 Project 1 - Storm Viewer.
 
-![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 40 43](https://user-images.githubusercontent.com/76879483/113517018-2abb3400-9586-11eb-9206-a589e7aa3d13.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 40 24](https://user-images.githubusercontent.com/76879483/113517019-2bec6100-9586-11eb-8e4c-adb66d2a0887.png)
+Table views, image views, app bundles, FileManager, typecasting, view controllers, storyboards, outlets, Auto Layout, UIImage.
+
+![5gdo2g](https://user-images.githubusercontent.com/76879483/125529099-4c94da56-9be3-4f8f-858b-fb344ce9e202.gif) ![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 00 53 35](https://user-images.githubusercontent.com/76879483/125530709-5148a648-3d36-43aa-81bf-1d07eda0138c.png)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 00 54 19](https://user-images.githubusercontent.com/76879483/125530870-056d9ea8-eb81-48c3-9cd2-50e6eb7b7304.png)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 00 54 04](https://user-images.githubusercontent.com/76879483/125530873-3a7c202a-7cbb-464d-8fdb-d516a2b5e436.png)
+
+
 
 
 Project 2 - Guess the Flag.
