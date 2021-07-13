@@ -8,28 +8,33 @@ Course of 100 days with swift from Paul Hudson. I graduated from it and am grate
 
 Project 1 - Storm Viewer.
 
-Table views, image views, app bundles, FileManager, typecasting, view controllers, storyboards, outlets, Auto Layout, UIImage.
+TableViews, imageViews, app bundles, FileManager, typecasting, viewControllers, storyboards, outlets, Auto Layout, UIImage.
 
 ![5gdo2g](https://user-images.githubusercontent.com/76879483/125529099-4c94da56-9be3-4f8f-858b-fb344ce9e202.gif) ![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 00 53 35](https://user-images.githubusercontent.com/76879483/125530709-5148a648-3d36-43aa-81bf-1d07eda0138c.png)
 ![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 00 54 19](https://user-images.githubusercontent.com/76879483/125530870-056d9ea8-eb81-48c3-9cd2-50e6eb7b7304.png)
 ![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 00 54 04](https://user-images.githubusercontent.com/76879483/125530873-3a7c202a-7cbb-464d-8fdb-d516a2b5e436.png)
 
 
-
-
 Project 2 - Guess the Flag.
 
-![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 34 00](https://user-images.githubusercontent.com/76879483/113516839-2e9a8680-9585-11eb-8845-18099fe846c5.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 33 42](https://user-images.githubusercontent.com/76879483/113516841-2f331d00-9585-11eb-8e1a-fab270651bad.png)
+Interface Builder, Auto Layout, outlets and other things, but at the same time you've learned about @2x and @3x images, asset catalogs, UIButton, CALayer, UIColor, random numbers, actions, UIAlertController.
 
+![5gdt1g](https://user-images.githubusercontent.com/76879483/125533290-88d16c95-1e92-4ea1-bf0e-c37543dc9b9e.gif)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 01 25 11](https://user-images.githubusercontent.com/76879483/125533296-e0648b2d-0c9e-496b-bb77-5a3d1f0c54ee.png)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 01 25 16](https://user-images.githubusercontent.com/76879483/125533299-cecae5a3-5f03-4b3d-9ae6-09c2eab0a34c.png)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 01 25 19](https://user-images.githubusercontent.com/76879483/125533300-c654f271-e724-495a-ad27-80b3d8e32e5d.png)
 
-Project 3 - Update Project 1.
-
-![Simulator Screen Shot - iPhone 12 - 2021-04-04 at 20 36 59](https://user-images.githubusercontent.com/76879483/113516905-9355e100-9585-11eb-88a2-f518a618e02f.png)
 
 
 Project 1 - 3 Milestone.
 
-![Simulator Screen Shot - iPhone 12 - 2021-04-06 at 20 27 55](https://user-images.githubusercontent.com/76879483/113755865-76521700-9719-11eb-8d2d-3358e9436b45.png) ![Simulator Screen Shot - iPhone 12 - 2021-04-06 at 20 28 06](https://user-images.githubusercontent.com/76879483/113755910-810cac00-9719-11eb-9907-c713d92ad1ae.png)
+ViewController, UITableViewController, UIActivityViewController, FileManager, imageView.
+
+![5gdtij](https://user-images.githubusercontent.com/76879483/125533653-256ebbc6-65bf-4dfd-9a8a-65bdef2d346d.gif)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 01 30 44](https://user-images.githubusercontent.com/76879483/125533657-9a889d61-73d3-4aad-b735-80a4706c22ae.png)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 01 30 52](https://user-images.githubusercontent.com/76879483/125533658-7e2c5235-521e-4b84-90e8-2b27c4260283.png)
+![Simulator Screen Shot - iPhone 12 - 2021-07-14 at 01 30 40](https://user-images.githubusercontent.com/76879483/125533659-6526ea96-a891-490d-b3bc-e69f10a3f568.png)
+
 
 
 Project 4 - Easy Browser.
