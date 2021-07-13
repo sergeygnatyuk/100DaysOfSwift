@@ -36,10 +36,10 @@ final class ViewController: UIViewController {
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
         // project 3 challenge 3
-                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score",
-                                                                    style: .plain,
-                                                                    target: self,
-                                                                    action: #selector(scoreTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(scoreTapped))
         
         // project 12 challenge 2
         let userDefaults = UserDefaults.standard
