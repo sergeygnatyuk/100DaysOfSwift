@@ -21,6 +21,7 @@ class ViewController: UITableViewController {
     private let cellSpacingHeight: CGFloat = 7
     
     //MARK: - Lifecycle
+    // Привет гит
     override func viewDidLoad() {
         super.viewDidLoad()
         //add icon action in navigationBar
@@ -58,6 +59,7 @@ class ViewController: UITableViewController {
     }
     
     //Delete cell
+    // Hi
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             pictures.remove(at: indexPath.row)
